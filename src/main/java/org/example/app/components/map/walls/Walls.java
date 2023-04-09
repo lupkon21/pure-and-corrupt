@@ -1,7 +1,6 @@
-package org.example.app.components.map.game;
+package org.example.app.components.map.walls;
 
 import lombok.*;
-import org.example.app.components.map.Border;
 import org.example.app.components.root.Paintable;
 import org.example.app.components.root.PaintableComponent;
 
@@ -20,7 +19,9 @@ public class Walls implements Paintable {
 
     @Override
     public void paint(Graphics2D g2) {
-
+        border.paint(g2);
+        for(PaintableComponent component : internal) {
+            component.paint(g2);
+        }
     }
-
 }
