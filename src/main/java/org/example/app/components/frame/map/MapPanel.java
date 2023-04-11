@@ -28,6 +28,10 @@ public class MapPanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        // vykresleni podlahy
+        g2.setColor(Color.WHITE);
+        g2.fillRect(0,0, MapConstants.MAP_PANEL_SIZE_X, MapConstants.MAP_PANEL_SIZE_Y);
         if(map != null) map.paint((Graphics2D) g);
     }
 

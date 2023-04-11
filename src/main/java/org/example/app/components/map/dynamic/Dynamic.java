@@ -2,6 +2,7 @@ package org.example.app.components.map.dynamic;
 
 import lombok.*;
 import org.example.app.components.root.Paintable;
+import org.example.app.constants.MapConstants;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class Dynamic implements Paintable {
     private void paintPatrolPoints(Graphics2D g2) {
         g2.setColor(new Color(255,107,0));
         for(PatrolPoint patrolPoint : patrolPoints) {
-            g2.fillRect(patrolPoint.getX() * 30, patrolPoint.getY() * 30, 30, 30);
+            g2.fillRect(patrolPoint.getX() * MapConstants.GRID_CELL_SIZE, patrolPoint.getY() * MapConstants.GRID_CELL_SIZE, MapConstants.GRID_CELL_SIZE, MapConstants.GRID_CELL_SIZE);
         }
     }
 }
