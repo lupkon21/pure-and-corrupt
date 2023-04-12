@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import lombok.*;
+import org.example.app.components.map.movement.CollisionDetection;
 import org.example.app.constants.MapConstants;
 
 import javax.swing.*;
@@ -57,5 +58,7 @@ public class MapPanel extends JPanel {
         } catch(JsonProcessingException e) {
             System.out.println("Cannot parse .json file for map id=" + id);
         }
+
+        CollisionDetection.setComponents(map.getComponents().toArray());
     }
 }
