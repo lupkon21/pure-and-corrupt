@@ -3,11 +3,13 @@ package org.example.app.components.map;
 import lombok.*;
 import org.example.app.components.map.dynamic.Dynamic;
 import org.example.app.components.map.walls.Walls;
+import org.example.app.components.root.DefaultComponent;
 import org.example.app.components.root.Paintable;
 import org.example.app.components.root.PaintableComponent;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -38,6 +40,12 @@ public class Components implements Paintable {
         components.add(dynamic.getPlayer());
         components.add(dynamic.getObjective());
 
+        return components;
+    }
+
+    public ArrayList<DefaultComponent> enemyCollisionComponentsToArray() {
+        ArrayList<DefaultComponent> components = dynamic.getPatrolPoints().stream().map(c -> (DefaultComponent) c).collect(Collectors.toCollection(ArrayList::new));
+        components.add(dynamic.getPlayer());
         return components;
     }
 }

@@ -60,5 +60,6 @@ public class MapPanel extends JPanel {
         }
 
         CollisionDetection.setComponents(map.getComponents().toArray());
+        CollisionDetection.setEnemyCollisionComponents(map.getComponents().enemyCollisionComponentsToArray());
     }
 }

@@ -22,4 +22,5 @@ public class Map implements Paintable {
     public void paint(Graphics2D g2) {
         components.paint(g2);
     }
+
 }

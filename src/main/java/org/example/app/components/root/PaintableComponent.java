@@ -24,7 +24,7 @@ public class PaintableComponent extends DefaultComponent implements Paintable {
 
     @JsonCreator
     public PaintableComponent(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset) {
-        super(x * MapConstants.GRID_CELL_SIZE, y * MapConstants.GRID_CELL_SIZE);
+        super(x, y);
         this.idAsset = idAsset;
         loadAsset();
     }
