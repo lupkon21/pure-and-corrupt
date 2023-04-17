@@ -22,13 +22,13 @@ public class Dynamic implements Paintable {
     @Override
     public void paint(Graphics2D g2) {
         objective.paint(g2);
-        player.paint(g2);
         for(Item item : items) {
             item.paint(g2);
         }
         for(Enemy enemy : enemies) {
             enemy.paint(g2);
         }
+        player.paint(g2);
 
         // TODO: remove, just for check
         paintPatrolPoints(g2);

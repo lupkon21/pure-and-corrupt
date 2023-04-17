@@ -36,9 +36,7 @@ public class Components implements Paintable {
         components.addAll(walls.getInternal());
 
         components.addAll(dynamic.getEnemies());
-        components.addAll(dynamic.getItems());
         components.add(dynamic.getPlayer());
-        components.add(dynamic.getObjective());
 
         return components;
     }
