@@ -19,14 +19,16 @@ public class Enemy extends PaintableComponent {
     private Integer speed;
 
     @JsonCreator
-    public Enemy(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset, @JsonProperty("id_type") Integer idType) {
+    public Enemy(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset, @JsonProperty("id_type") Integer idType, @JsonProperty("id_type_movement") Integer idTypeMovement) {
         super(x,y,idAsset);
         this.idType = idType;
-        this.direction = Direction.EAST;
+        this.direction = getMovementDirectionById(idTypeMovement);
         this.speed = MapConstants.GRID_CELL_SIZE;
     }
 
     public void move() {
+        if(direction == null) return;
+
         if(direction.equals(Direction.EAST)) {
             x += speed;
             if(CollisionDetection.isCollision(this)) {
@@ -39,6 +41,30 @@ public class Enemy extends PaintableComponent {
                 x += speed;
                 direction = Direction.EAST;
             }
+        } else if(direction.equals(Direction.NORTH)) {
+            y -= speed;
+            if(CollisionDetection.isCollision(this)) {
+                y += speed;
+                direction = Direction.SOUTH;
+            }
+        } else if(direction.equals(Direction.SOUTH)) {
+            y += speed;
+            if(CollisionDetection.isCollision(this)) {
+                y -= speed;
+                direction = Direction.NORTH;
+            }
+        }
+    }
+
+    private Direction getMovementDirectionById(Integer id) {
+        if (id.equals(1)) {
+            return Direction.WEST;
+        }
+        else if(id.equals(2)) {
+            return Direction.SOUTH;
+        }
+        else {
+            return null;
         }
     }
 }

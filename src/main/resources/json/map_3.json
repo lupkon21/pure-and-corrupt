@@ -1608,151 +1608,176 @@
           "x": 35,
           "y": 17,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 37,
           "y": 15,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 7,
           "y": 21,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 32,
           "y": 23,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 22,
           "y": 22,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 3,
           "y": 16,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 33,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 15,
           "y": 17,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 20,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 3,
           "y": 2,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 5,
           "y": 7,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 18,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 6,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 10,
           "y": 5,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 34,
           "y": 7,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 10,
           "y": 18,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 12,
           "y": 16,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 12,
           "y": 13,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 13,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 17,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 18,
           "y": 13,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 24,
           "y": 10,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 23,
           "y": 14,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 18,
           "y": 15,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 31,
           "y": 19,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         }
       ],
       "patrol_points": [
