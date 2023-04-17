@@ -3,6 +3,7 @@ package org.example.app.components.frame;
 import org.example.app.components.frame.map.MapPanel;
 import org.example.app.components.map.dynamic.Player;
 import org.example.app.components.map.movement.Direction;
+import org.example.app.constants.MapConstants;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -47,7 +48,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent keyEvent) {
-        if(System.currentTimeMillis() - startTime >= 120){
+        if(System.currentTimeMillis() - startTime >= MapConstants.PLAYER_MOVEMENT_TIMER) {
             movePlayerByKeyCode(keyEvent.getKeyCode());
             startTime = System.currentTimeMillis();
         }
