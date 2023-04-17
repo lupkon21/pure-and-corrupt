@@ -652,7 +652,7 @@
     },
     "dynamic": {
       "objective": {
-        "x": 24,
+        "x": 25,
         "y": 8,
         "id_asset": 5
       },
@@ -663,14 +663,20 @@
       },
       "items": [
         {
-          "x": 38,
-          "y": 21,
+          "x": 11,
+          "y": 15,
           "id_type": 0,
           "id_asset": 3
         },
         {
-          "x": 11,
-          "y": 15,
+          "x": 38,
+          "y": 1,
+          "id_type": 0,
+          "id_asset": 3
+        },
+        {
+          "x": 38,
+          "y": 14,
           "id_type": 0,
           "id_asset": 3
         }
@@ -680,1081 +686,1044 @@
           "x": 7,
           "y": 1,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 2,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 9,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 10,
           "y": 4,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 9,
           "y": 5,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 6,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 7,
           "y": 7,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 8,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 9,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 10,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 7,
           "y": 11,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 9,
           "y": 13,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 18,
           "y": 14,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 17,
           "y": 15,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 16,
           "y": 14,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 15,
           "y": 13,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 14,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 13,
           "y": 11,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
           "y": 14,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 7,
           "y": 15,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
-          "x": 2,
-          "y": 5,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 3,
-          "y": 6,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 4,
-          "y": 7,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 3,
-          "y": 8,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 2,
-          "y": 9,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 3,
-          "y": 10,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 4,
-          "y": 11,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 3,
-          "y": 12,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 2,
-          "y": 13,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 24,
-          "y": 21,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 24,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 25,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 26,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 27,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 28,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 29,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 30,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 31,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 32,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 33,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 34,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 35,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 36,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 37,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 38,
-          "y": 23,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 25,
-          "y": 20,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 26,
-          "y": 19,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 27,
-          "y": 20,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 28,
-          "y": 21,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 29,
-          "y": 20,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 30,
-          "y": 19,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 31,
-          "y": 20,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 32,
-          "y": 21,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 33,
-          "y": 20,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 34,
-          "y": 19,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 35,
-          "y": 20,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 36,
-          "y": 21,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 37,
-          "y": 20,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 38,
-          "y": 19,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 36,
-          "y": 14,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 35,
-          "y": 15,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 34,
+          "x": 8,
           "y": 16,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
-          "x": 33,
-          "y": 15,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 32,
-          "y": 14,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 31,
-          "y": 15,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 30,
+          "x": 9,
           "y": 16,
           "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 29,
-          "y": 15,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 28,
-          "y": 14,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 27,
-          "y": 15,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 26,
-          "y": 16,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 25,
-          "y": 15,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 24,
-          "y": 14,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 37,
-          "y": 15,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 38,
-          "y": 16,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 16,
-          "y": 17,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 15,
-          "y": 18,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 14,
-          "y": 19,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 13,
-          "y": 18,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 12,
-          "y": 17,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 11,
-          "y": 18,
-          "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 10,
-          "y": 19,
+          "y": 16,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
-          "x": 9,
+          "x": 11,
+          "y": 16,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 12,
+          "y": 16,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 2,
+          "y": 5,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 3,
+          "y": 6,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 4,
+          "y": 7,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 3,
+          "y": 8,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 2,
+          "y": 9,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 3,
+          "y": 10,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 4,
+          "y": 11,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 3,
+          "y": 12,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 2,
+          "y": 13,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 24,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 25,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 26,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 27,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 28,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 29,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 30,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 31,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 32,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 33,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 34,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 35,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 36,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 37,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 38,
+          "y": 23,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 36,
+          "y": 15,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 35,
+          "y": 14,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 33,
+          "y": 15,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 34,
+          "y": 21,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 32,
+          "y": 16,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 31,
           "y": 18,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 30,
+          "y": 19,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 29,
+          "y": 21,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 28,
+          "y": 20,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 27,
+          "y": 18,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 26,
+          "y": 17,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 25,
+          "y": 15,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 24,
+          "y": 14,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 37,
+          "y": 16,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 38,
+          "y": 17,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 16,
-          "y": 17,
+          "y": 18,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 17,
-          "y": 18,
+          "y": 20,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 18,
-          "y": 19,
+          "y": 22,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 19,
           "y": 18,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 15,
+          "y": 20,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 14,
+          "y": 22,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 13,
+          "y": 20,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 12,
+          "y": 18,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
+        },
+        {
+          "x": 11,
+          "y": 20,
+          "id_type": 0,
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 20,
           "y": 15,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 18,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 19,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 20,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 21,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 22,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 23,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 24,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 25,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 26,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 27,
           "y": 11,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 28,
           "y": 10,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 29,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 31,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 32,
           "y": 11,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 33,
           "y": 10,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 32,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 31,
           "y": 8,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 32,
           "y": 7,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 33,
           "y": 6,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 32,
           "y": 5,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 31,
           "y": 4,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 32,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 33,
           "y": 2,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 35,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 36,
           "y": 11,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 37,
           "y": 10,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 36,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 35,
           "y": 8,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 36,
           "y": 7,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 37,
           "y": 6,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 36,
           "y": 5,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 35,
           "y": 4,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 36,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 37,
           "y": 2,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 29,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 29,
           "y": 8,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 29,
           "y": 7,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 29,
           "y": 6,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 28,
           "y": 5,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 27,
           "y": 4,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 17,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 16,
           "y": 12,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 15,
           "y": 11,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 14,
           "y": 10,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 13,
           "y": 9,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 13,
           "y": 8,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 13,
           "y": 7,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 13,
           "y": 6,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 14,
           "y": 5,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 15,
           "y": 4,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 16,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 17,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 18,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 19,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 23,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 24,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 26,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 25,
           "y": 3,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 21,
           "y": 14,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 22,
           "y": 13,
           "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 15,
-          "y": 18,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 14,
-          "y": 19,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 8,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 9,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 10,
-          "y": 21,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 11,
           "y": 22,
           "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 12,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 13,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 14,
-          "y": 21,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 15,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 16,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 17,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 18,
-          "y": 21,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 19,
-          "y": 22,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 13,
-          "y": 18,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 12,
-          "y": 17,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 11,
-          "y": 18,
-          "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 10,
-          "y": 19,
-          "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 9,
-          "y": 18,
+          "y": 20,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 8,
-          "y": 17,
+          "y": 18,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 3,
           "y": 23,
           "id_type": 0,
-          "id_asset": 2
-        },
-        {
-          "x": 7,
-          "y": 16,
-          "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 2,
           "y": 14,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 3,
           "y": 15,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 4,
           "y": 16,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 3,
           "y": 17,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 2,
           "y": 18,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 3,
           "y": 19,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 4,
           "y": 20,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 3,
           "y": 21,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
           "x": 2,
           "y": 22,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         },
         {
-          "x": 18,
+          "x": 21,
           "y": 8,
           "id_type": 0,
-          "id_asset": 2
+          "id_asset": 2,
+          "id_type_movement": 0
         }
       ],
       "patrol_points": [
@@ -1996,91 +1965,47 @@
         },
         {
           "x": 8,
-          "y": 20
-        },
-        {
-          "x": 8,
-          "y": 16
+          "y": 17
         },
         {
           "x": 9,
-          "y": 20
-        },
-        {
-          "x": 9,
-          "y": 16
+          "y": 17
         },
         {
           "x": 10,
-          "y": 20
-        },
-        {
-          "x": 10,
-          "y": 16
+          "y": 17
         },
         {
           "x": 11,
-          "y": 20
-        },
-        {
-          "x": 11,
-          "y": 16
+          "y": 17
         },
         {
           "x": 12,
-          "y": 20
-        },
-        {
-          "x": 12,
-          "y": 16
+          "y": 17
         },
         {
           "x": 13,
-          "y": 20
-        },
-        {
-          "x": 13,
-          "y": 16
+          "y": 17
         },
         {
           "x": 14,
-          "y": 20
-        },
-        {
-          "x": 14,
-          "y": 16
+          "y": 17
         },
         {
           "x": 15,
-          "y": 20
-        },
-        {
-          "x": 15,
-          "y": 16
+          "y": 17
         },
         {
           "x": 16,
-          "y": 20
-        },
-        {
-          "x": 16,
-          "y": 16
+          "y": 17
         },
         {
           "x": 17,
-          "y": 20
-        },
-        {
-          "x": 17,
-          "y": 16
+          "y": 17
         },
         {
           "x": 18,
-          "y": 20
-        },
-        {
-          "x": 18,
-          "y": 16
+          "y": 17
         },
         {
           "x": 13,
@@ -2108,11 +2033,7 @@
         },
         {
           "x": 19,
-          "y": 20
-        },
-        {
-          "x": 19,
-          "y": 16
+          "y": 17
         },
         {
           "x": 8,
@@ -2167,124 +2088,60 @@
           "y": 22
         },
         {
-          "x": 24,
-          "y": 18
-        },
-        {
           "x": 25,
           "y": 22
-        },
-        {
-          "x": 25,
-          "y": 18
         },
         {
           "x": 26,
           "y": 22
         },
         {
-          "x": 26,
-          "y": 18
-        },
-        {
           "x": 27,
           "y": 22
-        },
-        {
-          "x": 27,
-          "y": 18
         },
         {
           "x": 28,
           "y": 22
         },
         {
-          "x": 28,
-          "y": 18
-        },
-        {
           "x": 29,
           "y": 22
-        },
-        {
-          "x": 29,
-          "y": 18
         },
         {
           "x": 30,
           "y": 22
         },
         {
-          "x": 30,
-          "y": 18
-        },
-        {
           "x": 31,
           "y": 22
-        },
-        {
-          "x": 31,
-          "y": 18
         },
         {
           "x": 32,
           "y": 22
         },
         {
-          "x": 32,
-          "y": 18
-        },
-        {
           "x": 33,
           "y": 22
-        },
-        {
-          "x": 33,
-          "y": 18
         },
         {
           "x": 34,
           "y": 22
         },
         {
-          "x": 34,
-          "y": 18
-        },
-        {
           "x": 35,
           "y": 22
-        },
-        {
-          "x": 35,
-          "y": 18
         },
         {
           "x": 36,
           "y": 22
         },
         {
-          "x": 36,
-          "y": 18
-        },
-        {
           "x": 37,
           "y": 22
         },
         {
-          "x": 37,
-          "y": 18
-        },
-        {
           "x": 38,
           "y": 22
-        },
-        {
-          "x": 38,
-          "y": 18
-        },
-        {
-          "x": 24,
-          "y": 17
         },
         {
           "x": 24,
@@ -2292,15 +2149,7 @@
         },
         {
           "x": 25,
-          "y": 17
-        },
-        {
-          "x": 25,
           "y": 13
-        },
-        {
-          "x": 26,
-          "y": 17
         },
         {
           "x": 26,
@@ -2308,15 +2157,7 @@
         },
         {
           "x": 27,
-          "y": 17
-        },
-        {
-          "x": 27,
           "y": 13
-        },
-        {
-          "x": 28,
-          "y": 17
         },
         {
           "x": 28,
@@ -2324,15 +2165,7 @@
         },
         {
           "x": 29,
-          "y": 17
-        },
-        {
-          "x": 29,
           "y": 13
-        },
-        {
-          "x": 30,
-          "y": 17
         },
         {
           "x": 30,
@@ -2340,15 +2173,7 @@
         },
         {
           "x": 31,
-          "y": 17
-        },
-        {
-          "x": 31,
           "y": 13
-        },
-        {
-          "x": 32,
-          "y": 17
         },
         {
           "x": 32,
@@ -2356,15 +2181,7 @@
         },
         {
           "x": 33,
-          "y": 17
-        },
-        {
-          "x": 33,
           "y": 13
-        },
-        {
-          "x": 34,
-          "y": 17
         },
         {
           "x": 34,
@@ -2372,15 +2189,7 @@
         },
         {
           "x": 35,
-          "y": 17
-        },
-        {
-          "x": 35,
           "y": 13
-        },
-        {
-          "x": 36,
-          "y": 17
         },
         {
           "x": 36,
@@ -2388,15 +2197,7 @@
         },
         {
           "x": 37,
-          "y": 17
-        },
-        {
-          "x": 37,
           "y": 13
-        },
-        {
-          "x": 38,
-          "y": 17
         },
         {
           "x": 38,
