@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.app.components.map.movement.CollisionDetection;
+import org.example.app.components.map.movement.CombatDetection;
 import org.example.app.components.map.movement.Direction;
 import org.example.app.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
@@ -17,6 +18,7 @@ public class Enemy extends PaintableComponent {
     private Integer idType;
     private Direction direction;
     private Integer speed;
+    private boolean isCombatActive;
 
     @JsonCreator
     public Enemy(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset, @JsonProperty("id_type") Integer idType, @JsonProperty("id_type_movement") Integer idTypeMovement) {
@@ -24,10 +26,12 @@ public class Enemy extends PaintableComponent {
         this.idType = idType;
         this.direction = getMovementDirectionById(idTypeMovement);
         this.speed = MapConstants.GRID_CELL_SIZE;
+        this.isCombatActive = false;
     }
 
     public void move() {
-        if(direction == null) return;
+        isCombatActive = CombatDetection.isCombatEnemy(this);
+        if(direction == null || isCombatActive) return;
 
         if(direction.equals(Direction.EAST)) {
             x += speed;

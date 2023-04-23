@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import lombok.*;
 import org.example.app.components.map.movement.CollisionDetection;
+import org.example.app.components.map.movement.CombatDetection;
+import org.example.app.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
 import javax.swing.*;
@@ -12,6 +14,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -61,5 +65,7 @@ public class MapPanel extends JPanel {
 
         CollisionDetection.setComponents(map.getComponents().toArray());
         CollisionDetection.setEnemyCollisionComponents(map.getComponents().enemyCollisionComponentsToArray());
+        CombatDetection.setEnemies((ArrayList<PaintableComponent>) map.getComponents().getDynamic().getEnemies().stream().map(e -> (PaintableComponent) e).collect(Collectors.toList()));
+        CombatDetection.setPlayer(map.getComponents().getDynamic().getPlayer());
     }
 }

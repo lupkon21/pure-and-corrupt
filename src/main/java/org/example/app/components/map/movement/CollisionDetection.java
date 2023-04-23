@@ -48,4 +48,8 @@ public class CollisionDetection {
         components.add(component);
         return false;
     }
+
+    public static boolean isCollisionCustom(Point c1, Point c2) {
+        return c1.getX().equals(c2.getX()) && c1.getY().equals(c2.getY());
+    }
 }
