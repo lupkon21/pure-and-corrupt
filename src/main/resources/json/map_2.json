@@ -1525,65 +1525,65 @@
         {
           "x": 33,
           "y": 19,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 2
         },
         {
           "x": 26,
           "y": 19,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 2
         },
         {
           "x": 32,
           "y": 17,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 1
         },
         {
           "x": 22,
           "y": 7,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 2
         },
         {
           "x": 12,
           "y": 3,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 2
         },
         {
           "x": 14,
           "y": 7,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 1
         },
         {
           "x": 15,
           "y": 14,
-          "id_type": 0,
+          "id_type": 3,
           "id_asset": 2,
           "id_type_movement": 0
         },
         {
           "x": 5,
           "y": 9,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 2
         },
         {
           "x": 22,
           "y": 12,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 2,
-          "id_type_movement": 0
+          "id_type_movement": 1
         }
       ],
       "patrol_points": [
