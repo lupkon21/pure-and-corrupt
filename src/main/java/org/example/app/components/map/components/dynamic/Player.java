@@ -1,11 +1,11 @@
-package org.example.app.components.map.dynamic;
+package org.example.app.components.map.components.dynamic;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.app.components.map.movement.CollisionDetection;
 import org.example.app.components.map.movement.Direction;
-import org.example.app.components.root.PaintableComponent;
+import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
 @Getter
@@ -16,11 +16,13 @@ import org.example.app.constants.MapConstants;
 public class Player extends PaintableComponent {
 
     private Integer speed;
+    private boolean isCombatActive;
 
     @JsonCreator
     public Player(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset) {
         super(x,y,idAsset);
         speed = MapConstants.GRID_CELL_SIZE;
+        isCombatActive = false;
     }
 
     public void move(Direction direction) {

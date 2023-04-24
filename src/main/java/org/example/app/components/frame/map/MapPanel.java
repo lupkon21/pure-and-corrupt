@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import lombok.*;
 import org.example.app.components.map.movement.CollisionDetection;
-import org.example.app.components.map.movement.CombatDetection;
-import org.example.app.components.root.PaintableComponent;
+import org.example.app.components.map.combat.CombatDetection;
+import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
 import javax.swing.*;

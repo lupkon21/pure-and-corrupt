@@ -1,4 +1,4 @@
-package org.example.app.components.root;
+package org.example.app.components.map.components.root;
 
 import java.awt.*;
 

@@ -1,7 +1,7 @@
-package org.example.app.components.map.dynamic;
+package org.example.app.components.map.components.dynamic;
 
 import lombok.*;
-import org.example.app.components.root.Paintable;
+import org.example.app.components.map.components.root.Paintable;
 import org.example.app.constants.MapConstants;
 
 import java.awt.*;

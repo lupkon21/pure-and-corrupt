@@ -1,12 +1,12 @@
-package org.example.app.components.map.dynamic;
+package org.example.app.components.map.components.dynamic;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.app.components.map.movement.CollisionDetection;
-import org.example.app.components.map.movement.CombatDetection;
+import org.example.app.components.map.combat.CombatDetection;
 import org.example.app.components.map.movement.Direction;
-import org.example.app.components.root.PaintableComponent;
+import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
 @Getter

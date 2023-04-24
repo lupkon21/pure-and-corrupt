@@ -1,6 +1,9 @@
-package org.example.app.components.map.movement;
+package org.example.app.components.map.combat;
 
-import org.example.app.components.root.PaintableComponent;
+import org.example.app.components.map.components.dynamic.Player;
+import org.example.app.components.map.movement.CollisionDetection;
+import org.example.app.components.map.movement.Direction;
+import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
 import java.util.ArrayList;
@@ -8,7 +11,7 @@ import java.util.Objects;
 
 public class CombatDetection {
     private static ArrayList<PaintableComponent> enemies;
-    private static PaintableComponent player;
+    private static Player player;
 
     public static ArrayList<PaintableComponent> getEnemies() {
         return enemies;
@@ -22,7 +25,7 @@ public class CombatDetection {
         return player;
     }
 
-    public static void setPlayer(PaintableComponent player) {
+    public static void setPlayer(Player player) {
         CombatDetection.player = player;
     }
 
@@ -70,6 +73,7 @@ public class CombatDetection {
 
         // TODO: Just for check
         if(isCombat) System.out.println("Combat");
+        player.setCombatActive(isCombat);
         return isCombat;
     }
 

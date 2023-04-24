@@ -1,4 +1,4 @@
-package org.example.app.components.root;
+package org.example.app.components.map.components.root;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;

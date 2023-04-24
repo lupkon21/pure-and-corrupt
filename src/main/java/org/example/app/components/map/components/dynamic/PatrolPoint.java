@@ -1,9 +1,9 @@
-package org.example.app.components.map.dynamic;
+package org.example.app.components.map.components.dynamic;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.example.app.components.root.DefaultComponent;
+import org.example.app.components.map.components.root.DefaultComponent;
 
 @Getter
 @Setter

@@ -1,4 +1,4 @@
-package org.example.app.components.map.movement;
+package org.example.app.components.map.combat;
 
 public class Point {
     private Integer x;

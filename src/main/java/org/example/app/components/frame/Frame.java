@@ -1,7 +1,7 @@
 package org.example.app.components.frame;
 
 import org.example.app.components.frame.map.MapPanel;
-import org.example.app.components.map.dynamic.Player;
+import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.components.map.movement.Direction;
 import org.example.app.constants.MapConstants;
 
