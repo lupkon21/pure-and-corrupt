@@ -34,10 +34,10 @@ public class MapPanel extends JPanel {
     @Override
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        // vykresleni podlahy
-        g2.setColor(Color.WHITE);
-        g2.fillRect(0,0, MapConstants.MAP_PANEL_SIZE_X, MapConstants.MAP_PANEL_SIZE_Y);
-        if(map != null) map.paint((Graphics2D) g);
+
+        // TODO: Floor painting
+        paintFloor(g2);
+        if(map != null) map.paint(g2);
     }
 
     @Override
@@ -67,5 +67,10 @@ public class MapPanel extends JPanel {
         CollisionDetection.setEnemyCollisionComponents(map.getComponents().enemyCollisionComponentsToArray());
         CombatDetection.setEnemies((ArrayList<PaintableComponent>) map.getComponents().getDynamic().getEnemies().stream().map(e -> (PaintableComponent) e).collect(Collectors.toList()));
         CombatDetection.setPlayer(map.getComponents().getDynamic().getPlayer());
+    }
+
+    private void paintFloor(Graphics2D g2) {
+        g2.setColor(Color.WHITE);
+        g2.fillRect(0,0, MapConstants.MAP_PANEL_SIZE_X, MapConstants.MAP_PANEL_SIZE_Y);
     }
 }
