@@ -23,7 +23,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         mapPanel = new MapPanel();
         this.add(mapPanel);
 
-        timer = new Timer(100,this);
+        timer = new Timer(130,this);
 
         this.addKeyListener(this);
         this.setResizable(false);
@@ -38,6 +38,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
 
     public void hideMapPanel() {
+        timer.stop();
         this.remove(mapPanel);
     }
 
