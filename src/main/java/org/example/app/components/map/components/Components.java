@@ -1,11 +1,11 @@
-package org.example.app.graphics.map.components;
+package org.example.app.components.map.components;
 
 import lombok.*;
-import org.example.app.graphics.map.components.dynamic.Dynamic;
-import org.example.app.graphics.map.components.walls.Walls;
-import org.example.app.graphics.map.components.root.DefaultComponent;
-import org.example.app.graphics.map.components.root.Paintable;
-import org.example.app.graphics.map.components.root.PaintableComponent;
+import org.example.app.components.map.components.dynamic.Dynamic;
+import org.example.app.components.map.components.walls.Walls;
+import org.example.app.components.map.components.root.DefaultComponent;
+import org.example.app.components.map.components.root.Paintable;
+import org.example.app.components.map.components.root.PaintableComponent;
 
 import java.awt.*;
 import java.util.ArrayList;

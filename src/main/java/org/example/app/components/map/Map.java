@@ -1,9 +1,9 @@
-package org.example.app.graphics.map;
+package org.example.app.components.map;
 
 import lombok.*;
-import org.example.app.graphics.map.components.Components;
-import org.example.app.graphics.map.components.Grid;
-import org.example.app.graphics.map.components.root.Paintable;
+import org.example.app.components.map.components.Components;
+import org.example.app.components.map.components.Grid;
+import org.example.app.components.map.components.root.Paintable;
 
 import java.awt.*;
 

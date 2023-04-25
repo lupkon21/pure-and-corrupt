@@ -1,4 +1,4 @@
-package org.example.app.graphics.pauseMenu;
+package org.example.app.components.pauseMenu;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package org.example.app.graphics.map;
+package org.example.app.components.map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import lombok.*;
 import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.combat.CombatDetection;
-import org.example.app.graphics.map.components.root.PaintableComponent;
+import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
 import javax.swing.*;

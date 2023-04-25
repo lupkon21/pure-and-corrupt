@@ -1,4 +1,4 @@
-package org.example.app.graphics.map.components;
+package org.example.app.components.map.components;
 
 import lombok.*;
 

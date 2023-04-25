@@ -1,9 +1,9 @@
 package org.example.app.logic.combat;
 
-import org.example.app.graphics.map.components.dynamic.Player;
+import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.movement.Direction;
-import org.example.app.graphics.map.components.root.PaintableComponent;
+import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
 import java.util.ArrayList;

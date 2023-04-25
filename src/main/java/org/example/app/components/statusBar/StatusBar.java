@@ -1,4 +1,4 @@
-package org.example.app.graphics.statusBar;
+package org.example.app.components.statusBar;
 
 import lombok.*;
 

@@ -1,8 +1,8 @@
-package org.example.app.graphics.map.components.walls;
+package org.example.app.components.map.components.walls;
 
 import lombok.*;
-import org.example.app.graphics.map.components.root.Paintable;
-import org.example.app.graphics.map.components.root.PaintableComponent;
+import org.example.app.components.map.components.root.Paintable;
+import org.example.app.components.map.components.root.PaintableComponent;
 
 import java.awt.*;
 import java.util.ArrayList;

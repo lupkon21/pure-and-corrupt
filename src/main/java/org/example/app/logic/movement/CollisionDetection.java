@@ -3,10 +3,10 @@ package org.example.app.logic.movement;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 import org.example.app.logic.combat.Point;
-import org.example.app.graphics.map.components.dynamic.Enemy;
-import org.example.app.graphics.map.components.dynamic.Player;
-import org.example.app.graphics.map.components.root.DefaultComponent;
-import org.example.app.graphics.map.components.root.PaintableComponent;
+import org.example.app.components.map.components.dynamic.Enemy;
+import org.example.app.components.map.components.dynamic.Player;
+import org.example.app.components.map.components.root.DefaultComponent;
+import org.example.app.components.map.components.root.PaintableComponent;
 
 import java.util.ArrayList;
 

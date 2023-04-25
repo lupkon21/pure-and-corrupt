@@ -1,6 +1,6 @@
 package org.example.app;
 
-import org.example.app.graphics.Frame;
+import org.example.app.components.Frame;
 
 public class App 
 {
