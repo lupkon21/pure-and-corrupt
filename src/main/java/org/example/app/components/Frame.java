@@ -13,8 +13,8 @@ import java.awt.event.KeyListener;
 
 public class Frame extends JFrame implements KeyListener, ActionListener {
     private final MapPanel mapPanel;
-    private final Timer timer;
-    private long startTime;
+    private final Timer enemyMovementTimer;
+    private long playerLastMovementTime;
 
     public Frame() {
         super("Pure and Corrupt");
@@ -22,21 +22,20 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
         mapPanel = new MapPanel();
         this.add(mapPanel);
-
-        timer = new Timer(130,this);
-
         this.addKeyListener(this);
         this.setResizable(false);
         this.pack();
         this.setLocationRelativeTo(null);
 
-        startTime = System.currentTimeMillis();
-        timer.start();
+        enemyMovementTimer = new Timer(MapConstants.ENEMY_MOVEMENT_TIMER,this);
+        enemyMovementTimer.start();
+
+        playerLastMovementTime = System.currentTimeMillis();
         super.setVisible(true);
     }
 
     public void hideMapPanel() {
-        timer.stop();
+        enemyMovementTimer.stop();
         this.remove(mapPanel);
     }
 
@@ -47,9 +46,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent keyEvent) {
-        if(System.currentTimeMillis() - startTime >= MapConstants.PLAYER_MOVEMENT_TIMER) {
+        if(System.currentTimeMillis() - playerLastMovementTime >= MapConstants.PLAYER_MOVEMENT_TIMER) {
             movePlayerByKeyCode(keyEvent.getKeyCode());
-            startTime = System.currentTimeMillis();
+            playerLastMovementTime = System.currentTimeMillis();
         }
     }
 
@@ -73,16 +72,15 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
             case 65:
                 player.move(Direction.WEST);
                 break;
-            case 16: {
+            case 16:
                 player.attack();
-            }
         }
         mapPanel.repaint();
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        if(actionEvent.getSource().equals(timer)) {
+        if(actionEvent.getSource().equals(enemyMovementTimer)) {
             mapPanel.getMap().getComponents().getDynamic().moveEnemies();
             mapPanel.repaint();
         }
