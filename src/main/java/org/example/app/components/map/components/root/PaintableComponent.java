@@ -35,7 +35,7 @@ public class PaintableComponent extends DefaultComponent implements Paintable {
         g2.drawImage(asset, x, y, MapConstants.GRID_CELL_SIZE, MapConstants.GRID_CELL_SIZE, null );
     }
 
-    private void loadAsset() {
+    public void loadAsset() {
         if(idAsset == null) return;
         try {
             asset = ImageIO.read(new File(MapConstants.ASSET_PATH + idAsset + ".jpg"));

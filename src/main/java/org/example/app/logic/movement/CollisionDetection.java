@@ -2,6 +2,7 @@ package org.example.app.logic.movement;
 
 import lombok.AllArgsConstructor;
 import lombok.ToString;
+import org.example.app.components.map.Map;
 import org.example.app.logic.combat.Point;
 import org.example.app.components.map.components.dynamic.Enemy;
 import org.example.app.components.map.components.dynamic.Player;
@@ -13,24 +14,15 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @ToString
 public class CollisionDetection {
-    private static ArrayList<PaintableComponent> components;
+    private static ArrayList<PaintableComponent> playerCollisionComponents;
     private static ArrayList<DefaultComponent> enemyCollisionComponents;
 
-    public static ArrayList<PaintableComponent> getComponents() {
-        return components;
-    }
-
-    public static void setComponents(ArrayList<PaintableComponent> components) {
-        CollisionDetection.components = components;
-    }
-
-    public static void setEnemyCollisionComponents(ArrayList<DefaultComponent> enemyCollisionComponents) {
-        CollisionDetection.enemyCollisionComponents = enemyCollisionComponents;
+    public static void initialize(Map map) {
+        enemyCollisionComponents = map.getComponents().enemyCollisionComponentsToArray();
+        playerCollisionComponents = map.getComponents().playerCollisionComponentsToArray();
     }
 
     public static boolean isCollision(PaintableComponent component) {
-        components.remove(component);
-
         if(component instanceof Enemy) {
             for(DefaultComponent c : enemyCollisionComponents) {
                 if(component.getX().equals(c.getX()) && component.getY().equals(c.getY())) {
@@ -38,15 +30,12 @@ public class CollisionDetection {
                 }
             }
         } else if(component instanceof Player) {
-            for(PaintableComponent c : components) {
+            for(PaintableComponent c : playerCollisionComponents) {
                 if(component.getX().equals(c.getX()) && component.getY().equals(c.getY())) {
-                    components.add(component);
                     return true;
                 }
             }
         }
-
-        components.add(component);
         return false;
     }
 

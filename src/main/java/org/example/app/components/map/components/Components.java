@@ -26,18 +26,14 @@ public class Components implements Paintable {
         dynamic.paint(g2);
     }
 
-    public ArrayList<PaintableComponent> toArray() {
+    public ArrayList<PaintableComponent> playerCollisionComponentsToArray() {
         ArrayList<PaintableComponent> components = new ArrayList<>();
-
         components.addAll(walls.getBorder().getNorth());
         components.addAll(walls.getBorder().getEast());
         components.addAll(walls.getBorder().getSouth());
         components.addAll(walls.getBorder().getWest());
         components.addAll(walls.getInternal());
-
         components.addAll(dynamic.getEnemies());
-        components.add(dynamic.getPlayer());
-
         return components;
     }
 

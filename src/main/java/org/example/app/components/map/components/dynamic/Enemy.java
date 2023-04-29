@@ -19,6 +19,7 @@ public class Enemy extends PaintableComponent {
     private Direction direction;
     private Integer speed;
     private boolean isCombatActive;
+    private Integer hp;
 
     @JsonCreator
     public Enemy(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset, @JsonProperty("id_type") Integer idType, @JsonProperty("id_type_movement") Integer idTypeMovement) {
@@ -27,6 +28,7 @@ public class Enemy extends PaintableComponent {
         this.direction = getMovementDirectionById(idTypeMovement);
         this.speed = MapConstants.GRID_CELL_SIZE;
         this.isCombatActive = false;
+        this.hp = 100;
     }
 
     public void move() {
@@ -67,8 +69,6 @@ public class Enemy extends PaintableComponent {
         else if(id.equals(2)) {
             return Direction.SOUTH;
         }
-        else {
-            return null;
-        }
+        return null;
     }
 }

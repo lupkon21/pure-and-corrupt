@@ -1,52 +1,21 @@
 package org.example.app.logic.combat;
 
+import org.example.app.components.map.Map;
+import org.example.app.components.map.components.dynamic.Enemy;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.movement.Direction;
 import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class CombatDetection {
-    private static ArrayList<PaintableComponent> enemies;
     private static Player player;
 
-    public static ArrayList<PaintableComponent> getEnemies() {
-        return enemies;
+    public static void initialize(Map map) {
+        player = map.getComponents().getDynamic().getPlayer();
     }
-
-    public static void setEnemies(ArrayList<PaintableComponent> enemies) {
-        CombatDetection.enemies = enemies;
-    }
-
-    public static PaintableComponent getPlayer() {
-        return player;
-    }
-
-    public static void setPlayer(Player player) {
-        CombatDetection.player = player;
-    }
-
-    /*
-    public static boolean isCombat(Player p) {
-        Point player = new Point(p.getX(), p.getY());
-        for(PaintableComponent e : enemies) {
-            Point enemy = new Point(e.getX(), e.getY());
-
-            if(CollisionDetection.isCollisionCustom(moveCoordinates(enemy, Direction.NORTH), player)) {
-                System.out.println("Combat");
-            } else if(CollisionDetection.isCollisionCustom(moveCoordinates(enemy, Direction.EAST), player)) {
-                System.out.println("Combat");
-            } else if(CollisionDetection.isCollisionCustom(moveCoordinates(enemy, Direction.SOUTH), player)) {
-                System.out.println("Combat");
-            } else if(CollisionDetection.isCollisionCustom(moveCoordinates(enemy, Direction.WEST), player)) {
-                System.out.println("Combat");
-            }
-        }
-        return false;
-    }*/
 
     public static boolean isCombatEnemy(PaintableComponent enemy) {
         Point e = new Point(enemy.getX(), enemy.getY());
@@ -71,9 +40,10 @@ public class CombatDetection {
             isCombat = true;
         }
 
-        // TODO: Just for check
-        if(isCombat) System.out.println("Combat");
-        player.setCombatActive(isCombat);
+        if(isCombat) {
+            Combat.setEnemy((Enemy) enemy);
+            player.setCombatActive(true);
+        }
         return isCombat;
     }
 

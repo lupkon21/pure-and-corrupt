@@ -35,8 +35,6 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         super.setVisible(true);
     }
 
-
-
     public void hideMapPanel() {
         timer.stop();
         this.remove(mapPanel);
@@ -75,6 +73,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
             case 65:
                 player.move(Direction.WEST);
                 break;
+            case 16: {
+                player.attack();
+            }
         }
         mapPanel.repaint();
     }
