@@ -5,12 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.render.Loader;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 @Getter
 @Setter
@@ -21,11 +19,12 @@ public class PaintableComponent extends DefaultComponent implements Paintable {
     private Integer idAsset;
     @JsonIgnore
     private BufferedImage asset;
-
+    private Integer idAssetDir;
     @JsonCreator
     public PaintableComponent(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset) {
         super(x, y);
-        this.idAsset = idAsset;
+        idAssetDir = idAsset;
+        this.idAsset = 1;
         loadAsset();
     }
 
@@ -36,11 +35,7 @@ public class PaintableComponent extends DefaultComponent implements Paintable {
     }
 
     public void loadAsset() {
-        if(idAsset == null) return;
-        try {
-            asset = ImageIO.read(new File(MapConstants.ASSET_PATH + idAsset + ".jpg"));
-        } catch (IOException e) {
-            System.out.println("Image for idAsset=" + idAsset + " not found.");
-        }
+        if(idAsset == null || idAssetDir == null) return;
+        asset = Loader.loadAsset(MapConstants.ASSET_PATH + idAssetDir + "/" + idAsset + ".png");
     }
 }

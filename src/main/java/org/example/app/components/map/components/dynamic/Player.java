@@ -18,18 +18,18 @@ public class Player extends PaintableComponent {
 
     private Integer speed;
     private boolean isCombatActive;
-    // private Direction direction;
+    private Direction direction;
 
     @JsonCreator
     public Player(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset) {
         super(x,y,idAsset);
         speed = MapConstants.GRID_CELL_SIZE;
         isCombatActive = false;
-        // direction = Direction.EAST;
+        direction = Direction.EAST;
     }
 
     public void move(Direction direction) {
-        // changeAsset(direction);
+        changeAsset(direction);
         if(direction.equals(Direction.NORTH)) {
             y -= speed;
             if(CollisionDetection.isCollision(this)) y += speed;
@@ -49,16 +49,12 @@ public class Player extends PaintableComponent {
         if(isCombatActive) Combat.playerDefaultAttack();
     }
 
-    /*
+
     private void changeAsset(Direction direction) {
-        if(this.direction.equals(Direction.EAST) && direction.equals(Direction.WEST)) {
-            this.setIdAsset(9);
-            loadAsset();
-            this.direction = direction;
-        } else if(this.direction.equals(Direction.WEST) && direction.equals(Direction.EAST)) {
-            this.setIdAsset(4);
-            loadAsset();
-            this.direction = direction;
-        }
-    }*/
+        if(this.direction.equals(direction)) return;
+
+        this.direction = direction;
+        this.setIdAsset(direction.getId());
+        this.loadAsset();
+    }
 }
