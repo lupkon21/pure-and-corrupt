@@ -30,14 +30,6 @@ public class CombatDetection {
             isCombat = true;
         } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.WEST), p)) {
             isCombat = true;
-        } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.NORTHEAST), p)) {
-            isCombat = true;
-        } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.SOUTHEAST), p)) {
-            isCombat = true;
-        } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.SOUTHWEST), p)) {
-            isCombat = true;
-        } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.NORTHWEST), p)) {
-            isCombat = true;
         }
 
         if(isCombat) {
