@@ -1,4 +1,4 @@
-package org.example.app.logic.combat;
+package org.example.app.logic.movement;
 
 public class Point {
     private Integer x;

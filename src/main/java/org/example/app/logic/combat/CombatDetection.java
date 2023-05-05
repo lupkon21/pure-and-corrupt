@@ -4,16 +4,19 @@ import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Enemy;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.logic.movement.CollisionDetection;
+import org.example.app.logic.movement.CoordinatesHandler;
 import org.example.app.logic.movement.Direction;
 import org.example.app.components.map.components.root.PaintableComponent;
-import org.example.app.constants.MapConstants;
+import org.example.app.logic.movement.Point;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class CombatDetection {
     private static Player player;
+    private static ArrayList<Enemy> enemies;
 
     public static void initialize(Map map) {
+        enemies = map.getComponents().getDynamic().getEnemies();
         player = map.getComponents().getDynamic().getPlayer();
     }
 
@@ -22,49 +25,33 @@ public class CombatDetection {
         Point p = new Point(player.getX(), player.getY());
         boolean isCombat = false;
 
-        if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.NORTH), p)) {
+        if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.NORTH), p)) {
             isCombat = true;
-        } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.EAST), p)) {
+        } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.EAST), p)) {
             isCombat = true;
-        } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.SOUTH), p)) {
+        } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.SOUTH), p)) {
             isCombat = true;
-        } else if(CollisionDetection.isCollisionCustom(moveCoordinates(e, Direction.WEST), p)) {
+        } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.WEST), p)) {
             isCombat = true;
         }
 
-        if(isCombat) {
-            Combat.setEnemy((Enemy) enemy);
-            player.setCombatActive(true);
-        }
         return isCombat;
     }
 
+    public static Enemy isCombatPlayer() {
+        for(Enemy enemy : enemies) {
+            Point e = new Point(enemy.getX(), enemy.getY());
+            Point p = new Point(player.getX(), player.getY());
 
-    private static Point moveCoordinates(Point point, Direction direction) {
-        Point p = new Point(point.getX(), point.getY());
+            boolean isCombat = CollisionDetection.isCollisionCustom(p,e);
+            if(!isCombat) {
+                p = CoordinatesHandler.moveCoordinates(p,player.getDirection());
+            }
 
-        if (Objects.requireNonNull(direction) == Direction.NORTH) {
-            p.setY(point.getY() - MapConstants.GRID_CELL_SIZE);
-        } else if (Objects.requireNonNull(direction) == Direction.EAST) {
-            p.setX(point.getX() + MapConstants.GRID_CELL_SIZE);
-        } else if (Objects.requireNonNull(direction) == Direction.SOUTH) {
-            p.setY(point.getY() + MapConstants.GRID_CELL_SIZE);
-        } else if (Objects.requireNonNull(direction) == Direction.WEST) {
-            p.setX(point.getX() - MapConstants.GRID_CELL_SIZE);
-        } else if (Objects.requireNonNull(direction) == Direction.NORTHEAST) {
-            p.setY(point.getY() - MapConstants.GRID_CELL_SIZE);
-            p.setX(point.getX() + MapConstants.GRID_CELL_SIZE);
-        } else if (Objects.requireNonNull(direction) == Direction.SOUTHEAST) {
-            p.setY(point.getY() + MapConstants.GRID_CELL_SIZE);
-            p.setX(point.getX() + MapConstants.GRID_CELL_SIZE);
-        } else if (Objects.requireNonNull(direction) == Direction.SOUTHWEST) {
-            p.setY(point.getY() + MapConstants.GRID_CELL_SIZE);
-            p.setX(point.getX() - MapConstants.GRID_CELL_SIZE);
-        }  else if (Objects.requireNonNull(direction) == Direction.NORTHWEST) {
-            p.setY(point.getY() - MapConstants.GRID_CELL_SIZE);
-            p.setX(point.getX() - MapConstants.GRID_CELL_SIZE);
+            if(isCombat || CollisionDetection.isCollisionCustom(p,e)) {
+                return enemy;
+            }
         }
-
-        return p;
+        return null;
     }
 }
