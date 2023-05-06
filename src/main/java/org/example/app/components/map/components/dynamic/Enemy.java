@@ -47,35 +47,45 @@ public class Enemy extends PaintableComponent {
             if(CollisionDetection.isCollision(this)) {
                 x -= speed;
                 direction = Direction.WEST;
+                changeAsset(direction);
             }
         } else if(direction.equals(Direction.WEST)) {
             x -= speed;
             if(CollisionDetection.isCollision(this)) {
                 x += speed;
                 direction = Direction.EAST;
+                changeAsset(direction);
             }
         } else if(direction.equals(Direction.NORTH)) {
             y -= speed;
             if(CollisionDetection.isCollision(this)) {
                 y += speed;
                 direction = Direction.SOUTH;
+                changeAsset(direction);
             }
         } else if(direction.equals(Direction.SOUTH)) {
             y += speed;
             if(CollisionDetection.isCollision(this)) {
                 y -= speed;
                 direction = Direction.NORTH;
+                changeAsset(direction);
             }
         }
     }
 
     private Direction getMovementDirectionById(Integer id) {
         if (id.equals(1)) {
-            return Direction.WEST;
+            return Direction.EAST;
         }
         else if(id.equals(2)) {
             return Direction.SOUTH;
         }
         return null;
+    }
+
+    public void changeAsset(Direction direction) {
+        this.direction = direction;
+        this.setIdAsset(direction.getId());
+        this.loadAsset();
     }
 }

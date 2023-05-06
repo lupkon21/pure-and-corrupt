@@ -6,7 +6,6 @@ import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.movement.CoordinatesHandler;
 import org.example.app.logic.movement.Direction;
-import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.logic.movement.Point;
 
 import java.util.ArrayList;
@@ -20,24 +19,23 @@ public class CombatDetection {
         player = map.getComponents().getDynamic().getPlayer();
     }
 
-    public static boolean isCombatEnemy(PaintableComponent enemy) {
+    public static boolean isCombatEnemy(Enemy enemy) {
         Point e = new Point(enemy.getX(), enemy.getY());
         Point p = new Point(player.getX(), player.getY());
         boolean isCombat = false;
 
-
         if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.NORTH), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.SOUTH)) Combat.activatePlayerCombat((Enemy) enemy);
+            if(player.getDirection().equals(Direction.SOUTH)) Combat.activatePlayerCombat(enemy);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.EAST), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.WEST)) Combat.activatePlayerCombat((Enemy) enemy);
+            if(player.getDirection().equals(Direction.WEST)) Combat.activatePlayerCombat(enemy);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.SOUTH), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.NORTH)) Combat.activatePlayerCombat((Enemy) enemy);
+            if(player.getDirection().equals(Direction.NORTH)) Combat.activatePlayerCombat(enemy);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.WEST), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.EAST)) Combat.activatePlayerCombat((Enemy) enemy);
+            if(player.getDirection().equals(Direction.EAST)) Combat.activatePlayerCombat(enemy);
         }
 
         return isCombat;
