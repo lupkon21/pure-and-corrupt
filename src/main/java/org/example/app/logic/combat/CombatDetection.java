@@ -25,14 +25,19 @@ public class CombatDetection {
         Point p = new Point(player.getX(), player.getY());
         boolean isCombat = false;
 
+
         if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.NORTH), p)) {
             isCombat = true;
+            if(player.getDirection().equals(Direction.SOUTH)) Combat.activatePlayerCombat((Enemy) enemy);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.EAST), p)) {
             isCombat = true;
+            if(player.getDirection().equals(Direction.WEST)) Combat.activatePlayerCombat((Enemy) enemy);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.SOUTH), p)) {
             isCombat = true;
+            if(player.getDirection().equals(Direction.NORTH)) Combat.activatePlayerCombat((Enemy) enemy);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.WEST), p)) {
             isCombat = true;
+            if(player.getDirection().equals(Direction.EAST)) Combat.activatePlayerCombat((Enemy) enemy);
         }
 
         return isCombat;
