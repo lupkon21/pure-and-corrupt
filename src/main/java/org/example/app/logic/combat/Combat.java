@@ -4,6 +4,7 @@ import lombok.*;
 import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Enemy;
 
+import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.logic.movement.CollisionDetection;
 
 @Setter
@@ -12,6 +13,7 @@ import org.example.app.logic.movement.CollisionDetection;
 @AllArgsConstructor
 public class Combat {
     private static Enemy enemy;
+    private static Player player;
     private static Map map;
 
     public static void setEnemy(Enemy enemy) {
@@ -19,6 +21,7 @@ public class Combat {
     }
     public static void initialize(Map map) {
         Combat.map = map;
+        Combat.player = map.getComponents().getDynamic().getPlayer();
     }
 
     public static void playerDefaultAttack() {
@@ -33,7 +36,10 @@ public class Combat {
     }
 
     public static void enemyAttack() {
-
+        if(player != null) {
+            player.setHp(player.getHp() - 10);
+            if(player.getHp() <= 0) playerDeath();
+        }
     }
 
     public static void enemyDeath(Enemy enemy) {
@@ -43,7 +49,13 @@ public class Combat {
         Combat.enemy = null;
     }
 
+    public static void playerDeath() {
+        map.getComponents().getDynamic().setPlayer(null);
+        map.setGameOver(true);
+    }
+
     public static void activatePlayerCombat(Enemy enemy) {
+        if(map.getComponents().getDynamic().getPlayer() == null) return;
         map.getComponents().getDynamic().getPlayer().setCombatActive(true);
         enemy.setCombatActive(true);
         Combat.setEnemy(enemy);

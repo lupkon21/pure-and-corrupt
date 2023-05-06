@@ -28,7 +28,7 @@ public class Dynamic implements Paintable {
         for(Enemy enemy : enemies) {
             enemy.paint(g2);
         }
-        player.paint(g2);
+        if(player != null) player.paint(g2);
     }
 
     private void paintPatrolPoints(Graphics2D g2) {

@@ -18,6 +18,7 @@ public class Map implements Paintable {
     private String name;
     private Grid grid;
     private Components components;
+    private boolean isGameOver = false;
 
     @Override
     public void paint(Graphics2D g2) {

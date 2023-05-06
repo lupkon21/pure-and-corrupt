@@ -35,6 +35,7 @@ public class Player extends PaintableComponent {
         speed = MapConstants.GRID_CELL_SIZE;
         isCombatActive = false;
         direction = Direction.EAST;
+        hp = 100;
     }
 
     public void move(Direction direction) {

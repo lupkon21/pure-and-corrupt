@@ -3,6 +3,7 @@ package org.example.app.components.map.components.dynamic;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.example.app.logic.combat.Combat;
 import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.combat.CombatDetection;
 import org.example.app.logic.movement.Direction;
@@ -35,7 +36,11 @@ public class Enemy extends PaintableComponent {
 
     public void move() {
         isCombatActive = CombatDetection.isCombatEnemy(this);
-        if(direction == null || isCombatActive) return;
+        if(direction == null) return;
+        if(isCombatActive) {
+            Combat.enemyAttack();
+            return;
+        }
 
         if(direction.equals(Direction.EAST)) {
             x += speed;
