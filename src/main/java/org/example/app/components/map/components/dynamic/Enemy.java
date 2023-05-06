@@ -31,7 +31,7 @@ public class Enemy extends PaintableComponent {
         this.direction = getMovementDirectionById(idTypeMovement);
         this.speed = MapConstants.GRID_CELL_SIZE;
         this.isCombatActive = false;
-        this.hp = 30;
+        this.hp = 50;
     }
 
     public void move() {

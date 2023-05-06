@@ -15,6 +15,7 @@ public class Combat {
     private static Enemy enemy;
     private static Player player;
     private static Map map;
+    private static long lastPlayerAttackTime;
 
     public static void setEnemy(Enemy enemy) {
         Combat.enemy = enemy;
@@ -22,11 +23,13 @@ public class Combat {
     public static void initialize(Map map) {
         Combat.map = map;
         Combat.player = map.getComponents().getDynamic().getPlayer();
+        lastPlayerAttackTime = System.currentTimeMillis();
     }
 
     public static void playerDefaultAttack() {
-        if(enemy != null) {
-            enemy.setHp(enemy.getHp() - 10);
+        if(enemy != null && checkCooldown(lastPlayerAttackTime, player.getAttackCooldown())) {
+            enemy.setHp(enemy.getHp() - player.getAttackDamage());
+            lastPlayerAttackTime = System.currentTimeMillis();
             if(enemy.getHp() <= 0) enemyDeath(enemy);
         }
     }
@@ -63,5 +66,9 @@ public class Combat {
 
     public static void deactivatePlayerCombat() {
         map.getComponents().getDynamic().getPlayer().setCombatActive(false);
+    }
+
+    public static boolean checkCooldown(long lastTime, Integer cooldownTime) {
+        return System.currentTimeMillis() - lastTime >= cooldownTime;
     }
 }

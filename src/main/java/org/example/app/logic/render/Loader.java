@@ -1,7 +1,9 @@
 package org.example.app.logic.render;
 
 import org.example.app.components.map.Map;
+import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.stats.StatsPlayer;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -12,7 +14,7 @@ import java.nio.file.Paths;
 
 public class Loader {
     public static Map loadMap(Integer id) {
-        String jsonString = Loader.loadJSON((MapConstants.JSON_PATH + id));
+        String jsonString = Loader.loadJSON((MapConstants.MAP_PATH + id));
         return Parser.parseMapJSON(jsonString);
     }
 
@@ -34,5 +36,11 @@ public class Loader {
             System.out.println("Image for not found on path=" + path);
         }
         return asset;
+    }
+
+    public static void loadStats(Player player) {
+        String jsonString = Loader.loadJSON(MapConstants.STATS_PATH + "player");
+        StatsPlayer stats =  Parser.parsePlayerStats(jsonString);
+        stats.mapStatsToPlayer(player);
     }
 }

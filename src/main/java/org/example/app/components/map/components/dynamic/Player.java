@@ -9,6 +9,7 @@ import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.movement.Direction;
 import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.render.Loader;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class Player extends PaintableComponent {
         speed = MapConstants.GRID_CELL_SIZE;
         isCombatActive = false;
         direction = Direction.EAST;
-        hp = 100;
+        Loader.loadStats(this);
     }
 
     public void move(Direction direction) {
