@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import org.example.app.components.map.Map;
+import org.example.app.logic.stats.StatsEnemy;
 import org.example.app.logic.stats.StatsPlayer;
 
 public class Parser {
@@ -30,5 +31,17 @@ public class Parser {
             System.out.println("Cannot parse .json file for player stats");
         }
         return statsPlayer;
+    }
+
+    public static StatsEnemy parseEnemyStats(String json) {
+        StatsEnemy statsEnemy = new StatsEnemy();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setPropertyNamingStrategy(new PropertyNamingStrategies.SnakeCaseStrategy());
+        try {
+            statsEnemy = objectMapper.readValue(json,StatsEnemy.class);
+        }  catch(JsonProcessingException e) {
+            System.out.println("Cannot parse .json file for enemy stats");
+        }
+        return statsEnemy;
     }
 }

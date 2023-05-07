@@ -1,8 +1,10 @@
 package org.example.app.logic.render;
 
 import org.example.app.components.map.Map;
+import org.example.app.components.map.components.dynamic.Enemy;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.stats.StatsEnemy;
 import org.example.app.logic.stats.StatsPlayer;
 
 import javax.imageio.ImageIO;
@@ -42,5 +44,11 @@ public class Loader {
         String jsonString = Loader.loadJSON(MapConstants.STATS_PATH + "player");
         StatsPlayer stats =  Parser.parsePlayerStats(jsonString);
         stats.mapStatsToPlayer(player);
+    }
+
+    public static void loadStats(Enemy enemy) {
+        String jsonString = Loader.loadJSON(MapConstants.STATS_PATH + "enemies/enemy_1");
+        StatsEnemy stats = Parser.parseEnemyStats(jsonString);
+        stats.mapStatsToEnemy(enemy);
     }
 }

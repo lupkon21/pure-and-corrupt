@@ -9,6 +9,7 @@ import org.example.app.logic.combat.CombatDetection;
 import org.example.app.logic.movement.Direction;
 import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.render.Loader;
 
 @Getter
 @Setter
@@ -31,7 +32,7 @@ public class Enemy extends PaintableComponent {
         this.direction = getMovementDirectionById(idTypeMovement);
         this.speed = MapConstants.GRID_CELL_SIZE;
         this.isCombatActive = false;
-        this.hp = 50;
+        Loader.loadStats(this);
     }
 
     public void move() {
