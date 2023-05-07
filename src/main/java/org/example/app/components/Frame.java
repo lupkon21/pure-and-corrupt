@@ -2,11 +2,13 @@ package org.example.app.components;
 
 import org.example.app.components.map.MapPanel;
 import org.example.app.components.map.components.dynamic.Player;
+import org.example.app.components.statusBar.StatusBarPanel;
 import org.example.app.logic.combat.CombatAction;
 import org.example.app.logic.movement.Direction;
 import org.example.app.constants.MapConstants;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -14,6 +16,7 @@ import java.awt.event.KeyListener;
 
 public class Frame extends JFrame implements KeyListener, ActionListener {
     private final MapPanel mapPanel;
+    private final StatusBarPanel statusBarPanel;
     private final Timer enemyMovementTimer;
     private long playerLastMovementTime;
 
@@ -21,8 +24,12 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         super("Pure and Corrupt");
         super.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        this.setLayout(new BorderLayout());
         mapPanel = new MapPanel();
-        this.add(mapPanel);
+        statusBarPanel = new StatusBarPanel();
+        this.add(mapPanel, BorderLayout.NORTH);
+        this.add(statusBarPanel, BorderLayout.SOUTH);
+
         this.addKeyListener(this);
         this.setResizable(false);
         this.pack();
@@ -33,11 +40,6 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
         playerLastMovementTime = System.currentTimeMillis();
         super.setVisible(true);
-    }
-
-    public void hideMapPanel() {
-        enemyMovementTimer.stop();
-        this.remove(mapPanel);
     }
 
     @Override
