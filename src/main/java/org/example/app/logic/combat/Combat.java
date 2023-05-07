@@ -39,7 +39,7 @@ public class Combat {
 
     }
 
-    public static void enemyAttack() {
+    public static void enemyAttack(Enemy enemy) {
         if(player != null && checkCooldown(lastEnemyAttackTime, enemy.getAttackCooldown())) {
             lastEnemyAttackTime = System.currentTimeMillis();
             player.setHp(player.getHp() - enemy.getAttackDamage());

@@ -40,7 +40,7 @@ public class Enemy extends PaintableComponent {
         isCombatActive = CombatDetection.isCombatEnemy(this);
         if(direction == null) return;
         if(isCombatActive) {
-            Combat.enemyAttack();
+            Combat.enemyAttack(this);
             return;
         }
 
