@@ -30,7 +30,7 @@ public class Enemy extends PaintableComponent {
         super(x,y,idAsset);
         this.idType = idType;
         this.direction = getMovementDirectionById(idTypeMovement);
-        this.changeAsset(direction != null ? direction : Direction.SOUTH);
+        this.changeAsset(direction);
         this.speed = MapConstants.GRID_CELL_SIZE;
         this.isCombatActive = false;
         Loader.loadStats(this);
@@ -86,6 +86,7 @@ public class Enemy extends PaintableComponent {
     }
 
     public void changeAsset(Direction direction) {
+        direction = direction != null ? direction : Direction.SOUTH;
         this.setIdAsset(direction.getId());
         this.loadAsset();
     }
