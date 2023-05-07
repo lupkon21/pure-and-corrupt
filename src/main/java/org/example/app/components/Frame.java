@@ -2,6 +2,7 @@ package org.example.app.components;
 
 import org.example.app.components.map.MapPanel;
 import org.example.app.components.map.components.dynamic.Player;
+import org.example.app.components.pauseMenu.PauseMenuPanel;
 import org.example.app.components.statusBar.StatusBarPanel;
 import org.example.app.logic.combat.CombatAction;
 import org.example.app.logic.movement.Direction;
@@ -17,6 +18,7 @@ import java.awt.event.KeyListener;
 public class Frame extends JFrame implements KeyListener, ActionListener {
     private final MapPanel mapPanel;
     private final StatusBarPanel statusBarPanel;
+    private final PauseMenuPanel pauseMenuPanel;
     private final Timer enemyMovementTimer;
     private long playerLastMovementTime;
 
@@ -27,6 +29,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         this.setLayout(new BorderLayout());
         mapPanel = new MapPanel();
         statusBarPanel = new StatusBarPanel();
+        pauseMenuPanel = new PauseMenuPanel();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
 
@@ -77,11 +80,14 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
             case 27:
                 pauseGame();
                 break;
+            case 10:
+                resumeGame();
+                break;
         }
     }
 
     private void movePlayer(Direction direction) {
-        if(mapPanel.getMap().isGameOver()) return;
+        if(isGamePausedOrOver()) return;
         Player player = this.mapPanel.getMap().getComponents().getDynamic().getPlayer();
         if(System.currentTimeMillis() - playerLastMovementTime >= MapConstants.PLAYER_MOVEMENT_TIMER) {
             playerLastMovementTime = System.currentTimeMillis();
@@ -91,7 +97,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
     }
 
     private void combatActionPlayer(CombatAction action) {
-        if(mapPanel.getMap().isGameOver()) return;
+        if(isGamePausedOrOver()) return;
         Player player = this.mapPanel.getMap().getComponents().getDynamic().getPlayer();
         if(action.equals(CombatAction.DEFAULT_ATTACK)) {
             player.attack();
@@ -99,21 +105,40 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
     }
 
     private void pauseGame() {
-        System.out.println("Pause menu");
-    }
+        if(isGamePausedOrOver()) return;
 
-    public void gameOver() {
+        mapPanel.getMap().setGamePaused(true);
         enemyMovementTimer.stop();
         this.remove(mapPanel);
+        this.remove(statusBarPanel);
+        this.add(pauseMenuPanel, BorderLayout.CENTER);
+        this.pack();
+        this.repaint();
+    }
+
+    private void resumeGame() {
+        if(!mapPanel.getMap().isGamePaused()) return;
+
+        mapPanel.getMap().setGamePaused(false);
+        enemyMovementTimer.start();
+        this.add(mapPanel, BorderLayout.NORTH);
+        this.add(statusBarPanel, BorderLayout.SOUTH);
+        this.remove(pauseMenuPanel);
+        this.pack();
+        this.repaint();
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        if(mapPanel.getMap().isGameOver()) {
+        if(isGamePausedOrOver()) {
             enemyMovementTimer.stop();
         } else if(actionEvent.getSource().equals(enemyMovementTimer)) {
             mapPanel.getMap().getComponents().getDynamic().moveEnemies();
             mapPanel.repaint();
         }
+    }
+
+    private boolean isGamePausedOrOver() {
+        return mapPanel.getMap().isGameOver() || mapPanel.getMap().isGamePaused();
     }
 }

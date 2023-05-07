@@ -19,6 +19,7 @@ public class Map implements Paintable {
     private Grid grid;
     private Components components;
     private boolean isGameOver = false;
+    private boolean isGamePaused = false;
 
     @Override
     public void paint(Graphics2D g2) {
