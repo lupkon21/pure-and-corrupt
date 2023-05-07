@@ -20,6 +20,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
     private final StatusBarPanel statusBarPanel;
     private final PauseMenuPanel pauseMenuPanel;
     private final Timer enemyMovementTimer;
+    private final Timer statusRefreshTimer;
     private long playerLastMovementTime;
 
     public Frame() {
@@ -39,7 +40,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         this.setLocationRelativeTo(null);
 
         enemyMovementTimer = new Timer(MapConstants.ENEMY_MOVEMENT_TIMER,this);
+        statusRefreshTimer = new Timer(1000, this);
         enemyMovementTimer.start();
+        statusRefreshTimer.start();
 
         playerLastMovementTime = System.currentTimeMillis();
         super.setVisible(true);
@@ -109,6 +112,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
         mapPanel.getMap().setGamePaused(true);
         enemyMovementTimer.stop();
+        statusRefreshTimer.stop();
         this.remove(mapPanel);
         this.remove(statusBarPanel);
         this.add(pauseMenuPanel, BorderLayout.CENTER);
@@ -121,6 +125,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
         mapPanel.getMap().setGamePaused(false);
         enemyMovementTimer.start();
+        statusRefreshTimer.start();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
         this.remove(pauseMenuPanel);
@@ -132,9 +137,15 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if(isGamePausedOrOver()) {
             enemyMovementTimer.stop();
+            statusRefreshTimer.stop();
+            statusBarPanel.getHealthBar().setStatus(0);
+            statusBarPanel.getHealthBar().repaint();
         } else if(actionEvent.getSource().equals(enemyMovementTimer)) {
             mapPanel.getMap().getComponents().getDynamic().moveEnemies();
             mapPanel.repaint();
+        } else if(actionEvent.getSource().equals(statusRefreshTimer)) {
+            statusBarPanel.getHealthBar().setStatus(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp() / 10);
+            statusBarPanel.getHealthBar().repaint();
         }
     }
 
