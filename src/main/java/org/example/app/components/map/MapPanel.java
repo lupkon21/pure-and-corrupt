@@ -17,7 +17,7 @@ public class MapPanel extends JPanel {
     private Map map;
 
     public MapPanel() {
-        this(3);
+        this(1);
     }
 
     public MapPanel(Integer id) {
