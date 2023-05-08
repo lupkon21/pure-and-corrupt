@@ -26,28 +26,19 @@ public class CombatDetection {
 
         if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.NORTH), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.SOUTH)) {
-                Combat.activatePlayerCombat(enemy);
-                enemy.changeAsset(Direction.NORTH);
-            }
+            enemy.changeAsset(Direction.NORTH);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.EAST), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.WEST)) {
-                Combat.activatePlayerCombat(enemy);
-                enemy.changeAsset(Direction.EAST);
-            }
+            Combat.activatePlayerCombat(enemy);
+            enemy.changeAsset(Direction.EAST);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.SOUTH), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.NORTH)) {
-                Combat.activatePlayerCombat(enemy);
-                enemy.changeAsset(Direction.SOUTH);
-            }
+            Combat.activatePlayerCombat(enemy);
+            enemy.changeAsset(Direction.SOUTH);
         } else if(CollisionDetection.isCollisionCustom(CoordinatesHandler.moveCoordinates(e, Direction.WEST), p)) {
             isCombat = true;
-            if(player.getDirection().equals(Direction.EAST)) {
-                Combat.activatePlayerCombat(enemy);
-                enemy.changeAsset(Direction.WEST);
-            }
+            Combat.activatePlayerCombat(enemy);
+            enemy.changeAsset(Direction.WEST);
         } else {
             enemy.changeAsset(enemy.getDirection());
         }
