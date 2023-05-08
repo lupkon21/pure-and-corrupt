@@ -1511,13 +1511,13 @@
         {
           "x": 35,
           "y": 22,
-          "id_type": 0,
+          "id_type": 2,
           "id_asset": 3
         },
         {
           "x": 17,
           "y": 12,
-          "id_type": 0,
+          "id_type": 3,
           "id_asset": 3
         }
       ],

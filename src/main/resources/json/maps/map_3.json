@@ -1581,25 +1581,25 @@
         {
           "x": 1,
           "y": 23,
-          "id_type": 0,
+          "id_type": 1,
           "id_asset": 3
         },
         {
           "x": 22,
           "y": 1,
-          "id_type": 0,
+          "id_type": 4,
           "id_asset": 3
         },
         {
           "x": 8,
           "y": 12,
-          "id_type": 0,
+          "id_type": 5,
           "id_asset": 3
         },
         {
           "x": 15,
           "y": 9,
-          "id_type": 0,
+          "id_type": 6,
           "id_asset": 3
         }
       ],

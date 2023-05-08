@@ -1396,13 +1396,13 @@
         {
           "x": 25,
           "y": 2,
-          "id_type": 0,
+          "id_type": 1,
           "id_asset": 3
         },
         {
           "x": 3,
           "y": 6,
-          "id_type": 0,
+          "id_type": 6,
           "id_asset": 3
         }
       ],
