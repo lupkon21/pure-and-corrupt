@@ -53,7 +53,6 @@ public class CollisionDetection {
     public static void checkItemCollision() {
         for(PaintableComponent i : items) {
             if(player.getX().equals(i.getX()) && player.getY().equals(i.getY())) {
-                System.out.println("e");
                 if(i instanceof Objective) {
                     Render.renderNextMap();
                 }
