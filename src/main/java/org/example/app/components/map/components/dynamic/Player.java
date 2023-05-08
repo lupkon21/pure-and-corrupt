@@ -54,6 +54,7 @@ public class Player extends PaintableComponent {
             x -= speed;
             if(CollisionDetection.isCollision(this)) x += speed;
         }
+        CollisionDetection.checkItemCollision();
         checkCombat();
     }
 

@@ -15,14 +15,14 @@ import java.awt.*;
 @ToString
 public class MapPanel extends JPanel {
     private Map map;
+    private Integer id;
 
     public MapPanel() {
         this(1);
     }
 
     public MapPanel(Integer id) {
-        map = Loader.loadMap(id);
-        initializeLogic(map);
+        loadMap(id);
     }
 
     @Override
@@ -40,5 +40,11 @@ public class MapPanel extends JPanel {
         CollisionDetection.initialize(map);
         CombatDetection.initialize(map);
         Combat.initialize(map);
+    }
+
+    public void loadMap(Integer id) {
+        this.id = id;
+        map = Loader.loadMap(id);
+        initializeLogic(map);
     }
 }

@@ -49,4 +49,9 @@ public class Dynamic implements Paintable {
             enemy.getAttackTimer().stop();
         }
     }
+    public void startAttackEnemies() {
+        for(Enemy enemy : enemies) {
+            enemy.getAttackTimer().start();
+        }
+    }
 }

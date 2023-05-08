@@ -7,6 +7,7 @@ import org.example.app.components.statusBar.StatusBarPanel;
 import org.example.app.logic.combat.CombatAction;
 import org.example.app.logic.movement.Direction;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.render.Render;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,11 +17,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Frame extends JFrame implements KeyListener, ActionListener {
-    private final MapPanel mapPanel;
+    private MapPanel mapPanel;
     private final StatusBarPanel statusBarPanel;
     private final PauseMenuPanel pauseMenuPanel;
-    private final Timer enemyMovementTimer;
-    private final Timer statusRefreshTimer;
+    private Timer enemyMovementTimer;
+    private Timer statusRefreshTimer;
     private long playerLastMovementTime;
 
     public Frame() {
@@ -39,12 +40,8 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         this.pack();
         this.setLocationRelativeTo(null);
 
-        enemyMovementTimer = new Timer(MapConstants.ENEMY_MOVEMENT_TIMER,this);
-        statusRefreshTimer = new Timer(1000, this);
-        enemyMovementTimer.start();
-        statusRefreshTimer.start();
-
-        playerLastMovementTime = System.currentTimeMillis();
+        initializeTimers();
+        Render.setFrame(this);
         super.setVisible(true);
     }
 
@@ -123,7 +120,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         if(!mapPanel.getMap().isGamePaused()) return;
 
         mapPanel.getMap().setGamePaused(false);
-        stopTimers();
+        startTimers();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
         this.remove(pauseMenuPanel);
@@ -150,9 +147,32 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         return mapPanel.getMap().isGameOver() || mapPanel.getMap().isGamePaused();
     }
 
-    private void stopTimers() {
+    public void initializeTimers() {
+        enemyMovementTimer = new Timer(MapConstants.ENEMY_MOVEMENT_TIMER,this);
+        statusRefreshTimer = new Timer(1000, this);
+        enemyMovementTimer.start();
+        statusRefreshTimer.start();
+
+        playerLastMovementTime = System.currentTimeMillis();
+    }
+
+    public void stopTimers() {
         enemyMovementTimer.stop();
         statusRefreshTimer.stop();
         mapPanel.getMap().getComponents().getDynamic().stopAttackEnemies();
+    }
+
+    public void startTimers() {
+        enemyMovementTimer.start();
+        statusRefreshTimer.start();
+        mapPanel.getMap().getComponents().getDynamic().startAttackEnemies();
+    }
+
+    public MapPanel getMapPanel() {
+        return mapPanel;
+    }
+
+    public void setMapPanel(MapPanel mapPanel) {
+        this.mapPanel = mapPanel;
     }
 }
