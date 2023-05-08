@@ -15,7 +15,7 @@ public class Render {
 
         frame.getMapPanel().loadMap(map.getId() + 1);
 
-        Player player = map.getComponents().getDynamic().getPlayer();
+        Player player = frame.getMapPanel().getMap().getComponents().getDynamic().getPlayer();
         player.setHp(playerLastState.getHp());
         player.setAttackDamage(playerLastState.getAttackDamage());
         player.setAttackCooldown(playerLastState.getAttackCooldown());
@@ -23,6 +23,7 @@ public class Render {
         player.setDefendTime(playerLastState.getDefendTime());
 
         frame.repaint();
+        frame.getContentPane().repaint();
         frame.initializeTimers();
     }
 

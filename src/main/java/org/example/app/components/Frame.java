@@ -30,7 +30,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
         this.setLayout(new BorderLayout());
         mapPanel = new MapPanel();
-        statusBarPanel = new StatusBarPanel();
+        statusBarPanel = new StatusBarPanel(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp() / 10);
         pauseMenuPanel = new PauseMenuPanel();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);

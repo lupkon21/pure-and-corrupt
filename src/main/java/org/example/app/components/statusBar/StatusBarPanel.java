@@ -16,9 +16,9 @@ public class StatusBarPanel extends JPanel {
 
     private HealthBar healthBar;
 
-    public StatusBarPanel() {
+    public StatusBarPanel(Integer status) {
         this.setLayout(null);
-        healthBar = new HealthBar(10);
+        healthBar = new HealthBar(status);
         healthBar.setBounds(MapConstants.GRID_CELL_SIZE * 4, MapConstants.GRID_CELL_SIZE, (int) healthBar.getPreferredSize().getWidth(), (int) healthBar.getPreferredSize().getHeight());
         this.add(healthBar);
     }
