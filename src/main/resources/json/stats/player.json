@@ -1,7 +1,7 @@
 {
   "hp": 100,
-  "attack_damage": 10,
-  "attack_cooldown": 1000,
+  "attack_damage": 50,
+  "attack_cooldown": 50,
   "defend_cooldown": 5000,
   "defend_time": 2000
 }

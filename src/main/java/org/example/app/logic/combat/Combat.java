@@ -46,10 +46,11 @@ public class Combat {
     }
 
     public static void enemyDeath(Enemy enemy) {
+        enemy.setCombatActive(false);
         map.getComponents().getDynamic().getEnemies().remove(enemy);
+        Combat.initialize(map);
         CollisionDetection.initialize(map);
         CombatDetection.initialize(map);
-        Combat.enemy = null;
     }
 
     public static void playerDeath() {
