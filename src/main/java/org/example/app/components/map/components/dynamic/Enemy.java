@@ -11,12 +11,17 @@ import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 import org.example.app.logic.render.Loader;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper=true)
-public class Enemy extends PaintableComponent {
+public class Enemy extends PaintableComponent implements ActionListener {
     private Integer idType;
     private Direction direction;
     private Integer speed;
@@ -24,6 +29,7 @@ public class Enemy extends PaintableComponent {
     private Integer hp;
     private Integer attackDamage;
     private Integer attackCooldown;
+    private Timer attackTimer;
 
     @JsonCreator
     public Enemy(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset, @JsonProperty("id_type") Integer idType, @JsonProperty("id_type_movement") Integer idTypeMovement) {
@@ -34,15 +40,13 @@ public class Enemy extends PaintableComponent {
         this.speed = MapConstants.GRID_CELL_SIZE;
         this.isCombatActive = false;
         Loader.loadStats(this);
+        this.attackTimer = new Timer(attackCooldown, this);
+        this.attackTimer.start();
     }
 
     public void move() {
         isCombatActive = CombatDetection.isCombatEnemy(this);
-        if(direction == null) return;
-        if(isCombatActive) {
-            Combat.enemyAttack(this);
-            return;
-        }
+        if(direction == null || isCombatActive) return;
 
         if(direction.equals(Direction.EAST)) {
             x += speed;
@@ -89,5 +93,10 @@ public class Enemy extends PaintableComponent {
         direction = direction != null ? direction : Direction.SOUTH;
         this.setIdAsset(direction.getId());
         this.loadAsset();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(isCombatActive) Combat.enemyAttack(this);
     }
 }

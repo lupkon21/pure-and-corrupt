@@ -111,8 +111,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         if(isGamePausedOrOver()) return;
 
         mapPanel.getMap().setGamePaused(true);
-        enemyMovementTimer.stop();
-        statusRefreshTimer.stop();
+        stopTimers();
         this.remove(mapPanel);
         this.remove(statusBarPanel);
         this.add(pauseMenuPanel, BorderLayout.CENTER);
@@ -124,8 +123,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         if(!mapPanel.getMap().isGamePaused()) return;
 
         mapPanel.getMap().setGamePaused(false);
-        enemyMovementTimer.start();
-        statusRefreshTimer.start();
+        stopTimers();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
         this.remove(pauseMenuPanel);
@@ -136,8 +134,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if(isGamePausedOrOver()) {
-            enemyMovementTimer.stop();
-            statusRefreshTimer.stop();
+            stopTimers();
             statusBarPanel.getHealthBar().setStatus(0);
             statusBarPanel.getHealthBar().repaint();
         } else if(actionEvent.getSource().equals(enemyMovementTimer)) {
@@ -151,5 +148,11 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
     private boolean isGamePausedOrOver() {
         return mapPanel.getMap().isGameOver() || mapPanel.getMap().isGamePaused();
+    }
+
+    private void stopTimers() {
+        enemyMovementTimer.stop();
+        statusRefreshTimer.stop();
+        mapPanel.getMap().getComponents().getDynamic().stopAttackEnemies();
     }
 }
