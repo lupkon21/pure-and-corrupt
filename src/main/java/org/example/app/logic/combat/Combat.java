@@ -8,8 +8,6 @@ import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.logic.movement.CollisionDetection;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @Setter
 @Getter
@@ -43,12 +41,7 @@ public class Combat {
         if(enemy != null && checkCooldown(lastPlayerDefendTime, player.getDefendCooldown())) {
             player.setDefendActive(true);
             lastPlayerDefendTime = System.currentTimeMillis();
-            Timer timer = new Timer(player.getDefendTime(), new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent arg0) {
-                    player.setDefendActive(false);
-                }
-            });
+            Timer timer = new Timer(player.getDefendTime(), argument -> player.setDefendActive(false));
             timer.setRepeats(false);
             timer.start();
         }
@@ -59,7 +52,6 @@ public class Combat {
     }
 
     public static void enemyAttack(Enemy enemy) {
-        System.out.println(player.isDefendActive());
         if(player != null&&!player.isDefendActive()) {
             player.setHp(player.getHp() - enemy.getAttackDamage());
             if(player.getHp() <= 0) playerDeath();
