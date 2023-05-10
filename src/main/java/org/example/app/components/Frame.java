@@ -78,6 +78,10 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
                 combatActionPlayer(CombatAction.DEFAULT_ATTACK);
                 break;
             case 27:
+                if(isGamePausedOrOver()){
+                    resumeGame();
+                    break;
+                }
                 pauseGame();
                 break;
             case 10:
