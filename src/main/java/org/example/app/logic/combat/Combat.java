@@ -33,6 +33,9 @@ public class Combat {
             if(enemy.getHp() <= 0) enemyDeath(enemy);
         }
     }
+    public static void playerDefend(){
+
+    }
 
     public static void playerItemAttack() {
 

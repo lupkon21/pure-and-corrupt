@@ -11,12 +11,9 @@ import org.example.app.logic.render.Render;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
-public class Frame extends JFrame implements KeyListener, ActionListener {
+public class Frame extends JFrame implements KeyListener, ActionListener, MouseListener {
     private MapPanel mapPanel;
     private final StatusBarPanel statusBarPanel;
     private final PauseMenuPanel pauseMenuPanel;
@@ -36,6 +33,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
         this.add(statusBarPanel, BorderLayout.SOUTH);
 
         this.addKeyListener(this);
+        this.addMouseListener(this);
         this.setResizable(false);
         this.pack();
         this.setLocationRelativeTo(null);
@@ -77,6 +75,8 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
             case 16:
                 combatActionPlayer(CombatAction.DEFAULT_ATTACK);
                 break;
+            case 49:
+                combatActionPlayer(CombatAction.DEFEND);
             case 27:
                 if(isGamePausedOrOver()){
                     resumeGame();
@@ -178,5 +178,39 @@ public class Frame extends JFrame implements KeyListener, ActionListener {
 
     public void setMapPanel(MapPanel mapPanel) {
         this.mapPanel = mapPanel;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        int x=e.getX();
+        int y=e.getY();
+        if(isGamePausedOrOver()){
+            if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE*2)&&y<(MapConstants.GRID_CELL_SIZE*4)){
+                System.exit(1);
+            }
+            if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
+                resumeGame();
+            }
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

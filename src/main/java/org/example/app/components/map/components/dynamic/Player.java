@@ -22,6 +22,7 @@ public class Player extends PaintableComponent {
 
     private Integer speed;
     private boolean isCombatActive;
+    private boolean isDefendActive;
     private Direction direction;
     private Integer hp;
     private Integer attackDamage;
@@ -35,6 +36,7 @@ public class Player extends PaintableComponent {
         super(x,y,idAsset);
         speed = MapConstants.GRID_CELL_SIZE;
         isCombatActive = false;
+        isDefendActive = false;
         direction = Direction.EAST;
         Loader.loadStats(this);
     }
@@ -60,6 +62,9 @@ public class Player extends PaintableComponent {
 
     public void attack() {
         if(isCombatActive) Combat.playerDefaultAttack();
+    }
+    public void defend() {
+        if(isCombatActive) Combat.playerDefend();
     }
 
 
