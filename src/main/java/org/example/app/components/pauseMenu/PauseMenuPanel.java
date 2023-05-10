@@ -34,7 +34,7 @@ public class PauseMenuPanel extends JPanel {
         g2.drawString("Q,E - activate items",(int) (MapConstants.GRID_CELL_SIZE * 3), (int) (MapConstants.GRID_CELL_SIZE * 13));
         g2.drawString("ESC - pause",(int) (MapConstants.GRID_CELL_SIZE * 3), (int) (MapConstants.GRID_CELL_SIZE * 14));
 
-        double LORE_OFFSET = 13;
+        double LORE_OFFSET = 12;
         g2.setFont(new Font("Impact", Font.ITALIC, 48));
         g2.drawString("Lore:",(int) (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (int) (MapConstants.GRID_CELL_SIZE * 10));
         g2.setFont(new Font("Impact", Font.ITALIC, 16));
@@ -47,6 +47,10 @@ public class PauseMenuPanel extends JPanel {
         g2.drawString("The Church and their soldiers. Paladins. Such as you. The best of the best. The most pure and uncorrupted of them all.",(int) (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (int) (MapConstants.GRID_CELL_SIZE * 17));
         g2.drawString("And the Church chose you specifically to go down where it all started. Through the sunken ground, right to the center of Hell and end it all for good.",(int) (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (int) (MapConstants.GRID_CELL_SIZE * 18));
         g2.drawString("What they forgot to tell you are the bodies of your comrades that have fallen on the very same mission.\n",(int) (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (int) (MapConstants.GRID_CELL_SIZE * 19));
+
+        g2.drawRect((MapConstants.GRID_CELL_SIZE * 30), (int) (MapConstants.GRID_CELL_SIZE),(MapConstants.GRID_CELL_SIZE * 9), (int) (MapConstants.GRID_CELL_SIZE * 2));
+        g2.setFont(new Font("Impact", Font.BOLD, 48));
+        g2.drawString("QUIT GAME",(int) (MapConstants.GRID_CELL_SIZE * 31.5), (int) (MapConstants.GRID_CELL_SIZE * 2.5));
 
     }
 
