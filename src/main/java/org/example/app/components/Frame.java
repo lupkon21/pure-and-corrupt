@@ -186,7 +186,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         int y=e.getY();
         if(isGamePausedOrOver()){
             if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE*2)&&y<(MapConstants.GRID_CELL_SIZE*4)){
-                System.exit(1);
+                System.exit(0);
             }
             if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
                 resumeGame();

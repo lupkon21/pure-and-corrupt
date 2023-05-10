@@ -32,7 +32,7 @@ public class PauseMenuPanel extends JPanel {
         g2.setFont(new Font("Impact", Font.PLAIN, 32));
         g2.drawString("WASD - move",(int) (MapConstants.GRID_CELL_SIZE * 3), (int) (MapConstants.GRID_CELL_SIZE * 11));
         g2.drawString("SHIFT - attack",(int) (MapConstants.GRID_CELL_SIZE * 3), (int) (MapConstants.GRID_CELL_SIZE * 12));
-        g2.drawString("Q,E - activate items",(int) (MapConstants.GRID_CELL_SIZE * 3), (int) (MapConstants.GRID_CELL_SIZE * 13));
+        g2.drawString("Q, E - activate items",(int) (MapConstants.GRID_CELL_SIZE * 3), (int) (MapConstants.GRID_CELL_SIZE * 13));
         g2.drawString("ESC - pause",(int) (MapConstants.GRID_CELL_SIZE * 3), (int) (MapConstants.GRID_CELL_SIZE * 14));
 
         g2.setColor(Color.RED);
