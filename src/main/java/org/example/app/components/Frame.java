@@ -75,8 +75,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
             case 16:
                 combatActionPlayer(CombatAction.DEFAULT_ATTACK);
                 break;
-            case 49:
+            case 32:
                 combatActionPlayer(CombatAction.DEFEND);
+                break;
             case 27:
                 if(isGamePausedOrOver()){
                     resumeGame();
@@ -105,6 +106,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         Player player = this.mapPanel.getMap().getComponents().getDynamic().getPlayer();
         if(action.equals(CombatAction.DEFAULT_ATTACK)) {
             player.attack();
+        }
+        if(action.equals(CombatAction.DEFEND)) {
+            player.defend();
         }
     }
 

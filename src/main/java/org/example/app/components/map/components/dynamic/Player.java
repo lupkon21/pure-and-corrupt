@@ -23,6 +23,7 @@ public class Player extends PaintableComponent {
     private Integer speed;
     private boolean isCombatActive;
     private boolean isDefendActive;
+
     private Direction direction;
     private Integer hp;
     private Integer attackDamage;

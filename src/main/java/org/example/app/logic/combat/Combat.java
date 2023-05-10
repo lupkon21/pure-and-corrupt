@@ -7,6 +7,10 @@ import org.example.app.components.map.components.dynamic.Enemy;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.logic.movement.CollisionDetection;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 @Setter
 @Getter
 @ToString
@@ -16,6 +20,7 @@ public class Combat {
     private static Player player;
     private static Map map;
     private static long lastPlayerAttackTime;
+    private static long lastPlayerDefendTime;
 
     public static void setEnemy(Enemy enemy) {
         Combat.enemy = enemy;
@@ -24,6 +29,7 @@ public class Combat {
         Combat.map = map;
         Combat.player = map.getComponents().getDynamic().getPlayer();
         lastPlayerAttackTime = System.currentTimeMillis();
+        lastPlayerDefendTime = System.currentTimeMillis();
     }
 
     public static void playerDefaultAttack() {
@@ -34,7 +40,18 @@ public class Combat {
         }
     }
     public static void playerDefend(){
-
+        if(enemy != null && checkCooldown(lastPlayerDefendTime, player.getDefendCooldown())) {
+            player.setDefendActive(true);
+            lastPlayerDefendTime = System.currentTimeMillis();
+            Timer timer = new Timer(player.getDefendTime(), new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    player.setDefendActive(false);
+                }
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
     }
 
     public static void playerItemAttack() {
@@ -42,7 +59,8 @@ public class Combat {
     }
 
     public static void enemyAttack(Enemy enemy) {
-        if(player != null) {
+        System.out.println(player.isDefendActive());
+        if(player != null&&!player.isDefendActive()) {
             player.setHp(player.getHp() - enemy.getAttackDamage());
             if(player.getHp() <= 0) playerDeath();
         }
