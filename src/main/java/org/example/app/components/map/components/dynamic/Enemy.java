@@ -36,6 +36,7 @@ public class Enemy extends PaintableComponent implements ActionListener {
         super(x,y,idAsset);
         this.idType = idType;
         this.direction = getMovementDirectionById(idTypeMovement);
+        loadAsset();
         this.changeAsset(direction);
         this.speed = MapConstants.GRID_CELL_SIZE;
         this.isCombatActive = false;
@@ -98,5 +99,11 @@ public class Enemy extends PaintableComponent implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(isCombatActive) Combat.enemyAttack(this);
+    }
+
+    @Override
+    public void loadAsset() {
+        if(this.idAsset == null || this.idAssetDir == null || idType == null) return;
+        this.asset = Loader.loadAsset(MapConstants.ASSET_PATH + this.idAssetDir + "/" + idType + "/" + this.idAsset  + ".png");
     }
 }

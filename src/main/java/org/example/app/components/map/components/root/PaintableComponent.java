@@ -1,7 +1,6 @@
 package org.example.app.components.map.components.root;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.app.constants.MapConstants;
@@ -16,21 +15,22 @@ import java.awt.image.BufferedImage;
 @NoArgsConstructor
 @ToString(callSuper=true)
 public class PaintableComponent extends DefaultComponent implements Paintable {
-    private Integer idAsset;
-    @JsonIgnore
-    private BufferedImage asset;
-    private Integer idAssetDir;
+
+    protected Integer idAsset;
+    protected BufferedImage asset;
+    protected Integer idAssetDir;
+
     @JsonCreator
     public PaintableComponent(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset) {
         super(x, y);
         idAssetDir = idAsset;
         this.idAsset = 1;
-        loadAsset();
+        if(idAssetDir != 2 && idAssetDir != 3) loadAsset();
     }
 
     @Override
     public void paint(Graphics2D g2) {
-        if(idAsset != null) loadAsset();
+        if(asset == null) return;
         g2.drawImage(asset, x, y, MapConstants.GRID_CELL_SIZE, MapConstants.GRID_CELL_SIZE, null );
     }
 
