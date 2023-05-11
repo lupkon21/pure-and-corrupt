@@ -20,6 +20,7 @@ public class PauseMenuPanel extends JPanel {
         g2.setColor(Color.BLACK);
         g2.fillRect(0,0,PauseMenuConstants.SIZE_X,PauseMenuConstants.SIZE_Y);
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setColor(Color.RED);
         g2.setFont(new Font("Impact", Font.BOLD, 100));
         g2.drawString("Pure & Corrupt", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 3));
@@ -40,7 +41,7 @@ public class PauseMenuPanel extends JPanel {
         g2.setFont(new Font("Impact", Font.PLAIN, 48));
         g2.drawString("Lore:", (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (MapConstants.GRID_CELL_SIZE * 10));
         g2.setColor(Color.WHITE);
-        g2.setFont(new Font("Impact", Font.PLAIN, 16));
+        g2.setFont(new Font("Arial", Font.BOLD, 13));
         g2.drawString("Hell is real. And so is Heaven, but people seem like they've forgotten that. The world was taken over by sin.", (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (MapConstants.GRID_CELL_SIZE * 11));
         g2.drawString("That fueled the forces of Hell to the point where they became much stronger than Heaven and humans ever could imagine.", (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (MapConstants.GRID_CELL_SIZE * 12));
         g2.drawString("Hell's corruption became so powerful, that the very ground beneath places important to the Church trembled until it ", (MapConstants.GRID_CELL_SIZE * LORE_OFFSET), (MapConstants.GRID_CELL_SIZE * 13));
