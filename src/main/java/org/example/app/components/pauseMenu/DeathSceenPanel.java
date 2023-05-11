@@ -33,7 +33,7 @@ public class DeathSceenPanel extends JPanel {
         g2.drawString("Programming - Lukáš Protiva, Martin Šoupa", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 11));
         g2.drawString("Design - Martin Šoupa, Lukáš Protiva", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 12));
         g2.drawString("Příběh - Martin Šoupa", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 13));
-        g2.drawString("Grafika - ", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 14));
+        g2.drawString("Grafika - František Břenek", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 14));
 
         g2.setColor(Color.RED);
         g2.drawRect((MapConstants.GRID_CELL_SIZE * 30), (MapConstants.GRID_CELL_SIZE),(MapConstants.GRID_CELL_SIZE * 9),(MapConstants.GRID_CELL_SIZE * 2));
