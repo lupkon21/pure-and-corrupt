@@ -18,8 +18,9 @@ public class HealthBar extends JPanel {
     private String label;
     private BufferedImage image;
 
-    public HealthBar(Integer status) {
-        this.status = status;
+    public HealthBar(Integer hp) {
+        this.status = hp / 10;
+        if(hp > 0 && hp < 10) this.status = 1;
         label = "Your HP:";
         try {
             image = ImageIO.read(new File(MapConstants.ASSET_PATH + "status_bar/health_bar.png"));
@@ -50,5 +51,10 @@ public class HealthBar extends JPanel {
         for(int i = 0; i < status; i++) {
             g2.fillRect((int) (MapConstants.GRID_CELL_SIZE * (i + 3.3)) - (i * (StatusBarConstants.HEALTH_BAR_SPACE + 5)), StatusBarConstants.HEALTH_BAR_SPACE, MapConstants.GRID_CELL_SIZE - StatusBarConstants.HEALTH_BAR_SPACE * 2, MapConstants.GRID_CELL_SIZE - StatusBarConstants.HEALTH_BAR_SPACE * 2);
         }
+    }
+
+    public void setStatus(Integer hp) {
+        this.status = hp / 10;
+        if(hp > 0 && hp < 10) this.status = 1;
     }
 }

@@ -27,7 +27,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
 
         this.setLayout(new BorderLayout());
         mapPanel = new MapPanel();
-        statusBarPanel = new StatusBarPanel(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp() / 10);
+        statusBarPanel = new StatusBarPanel(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp());
         pauseMenuPanel = new PauseMenuPanel();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
@@ -146,7 +146,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
             mapPanel.getMap().getComponents().getDynamic().moveEnemies();
             mapPanel.repaint();
         } else if(actionEvent.getSource().equals(statusRefreshTimer)) {
-            statusBarPanel.getHealthBar().setStatus(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp() / 10);
+            statusBarPanel.getHealthBar().setStatus(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp());
             statusBarPanel.getHealthBar().repaint();
         }
     }
