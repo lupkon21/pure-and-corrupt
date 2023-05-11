@@ -47,7 +47,7 @@ public class Loader {
     }
 
     public static void loadStats(Enemy enemy) {
-        String jsonString = Loader.loadJSON(MapConstants.STATS_PATH + "enemies/enemy_1");
+        String jsonString = Loader.loadJSON(MapConstants.STATS_PATH + "enemies/enemy_" + enemy.getIdType());
         StatsEnemy stats = Parser.parseEnemyStats(jsonString);
         stats.mapStatsToEnemy(enemy);
     }
