@@ -4,7 +4,10 @@ import lombok.*;
 import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Enemy;
 
+import org.example.app.components.map.components.dynamic.Item;
 import org.example.app.components.map.components.dynamic.Player;
+import org.example.app.constants.ItemsConstants;
+import org.example.app.logic.items.ItemType;
 import org.example.app.logic.movement.CollisionDetection;
 
 import javax.swing.*;
@@ -60,7 +63,11 @@ public class Combat {
 
     public static void enemyDeath(Enemy enemy) {
         enemy.setCombatActive(false);
+        player.setCombatActive(false);
         map.getComponents().getDynamic().getEnemies().remove(enemy);
+        if(hasPlayerItem(ItemType.LIFECRYSTAL)) {
+            player.setHp(player.getHp() + ItemsConstants.LIFECRYSTAL_EFFECTIVNESS);
+        }
         Combat.initialize(map);
         CollisionDetection.initialize(map);
         CombatDetection.initialize(map);
@@ -84,5 +91,12 @@ public class Combat {
 
     public static boolean checkCooldown(long lastTime, Integer cooldownTime) {
         return System.currentTimeMillis() - lastTime >= cooldownTime;
+    }
+
+    public static boolean hasPlayerItem(ItemType itemType) {
+        for(Item i : player.getItems()) {
+            if(i.getItemType().equals(itemType)) return true;
+        }
+        return false;
     }
 }

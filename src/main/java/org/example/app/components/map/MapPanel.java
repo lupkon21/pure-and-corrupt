@@ -2,6 +2,7 @@ package org.example.app.components.map;
 
 import lombok.*;
 import org.example.app.logic.combat.Combat;
+import org.example.app.logic.items.ItemsExecutor;
 import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.combat.CombatDetection;
 import org.example.app.constants.MapConstants;
@@ -40,6 +41,7 @@ public class MapPanel extends JPanel {
         CollisionDetection.initialize(map);
         CombatDetection.initialize(map);
         Combat.initialize(map);
+        ItemsExecutor.initialize(map);
     }
 
     public void loadMap(Integer id) {

@@ -157,7 +157,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
 
     public void initializeTimers() {
         enemyMovementTimer = new Timer(MapConstants.ENEMY_MOVEMENT_TIMER,this);
-        statusRefreshTimer = new Timer(1000, this);
+        statusRefreshTimer = new Timer(10, this);
         enemyMovementTimer.start();
         statusRefreshTimer.start();
 

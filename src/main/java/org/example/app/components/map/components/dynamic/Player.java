@@ -40,6 +40,8 @@ public class Player extends PaintableComponent {
         isDefendActive = false;
         direction = Direction.EAST;
         Loader.loadStats(this);
+        items = new ArrayList<>();
+        MapConstants.PLAYER_MAX_HP = hp;
     }
 
     public void move(Direction direction) {
@@ -83,5 +85,13 @@ public class Player extends PaintableComponent {
         } else if(this.isCombatActive()) {
             Combat.deactivatePlayerCombat();
         }
+    }
+
+    public void setHp(Integer hp) {
+        if(hp > MapConstants.PLAYER_MAX_HP) {
+            this.hp = MapConstants.PLAYER_MAX_HP;
+            return;
+        }
+        this.hp = hp;
     }
 }
