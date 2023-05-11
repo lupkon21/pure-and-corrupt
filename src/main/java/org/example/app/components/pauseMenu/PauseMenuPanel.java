@@ -34,7 +34,8 @@ public class PauseMenuPanel extends JPanel {
         g2.drawString("WASD - move", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 11));
         g2.drawString("SHIFT - attack", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 12));
         g2.drawString("Q, E - activate items", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 13));
-        g2.drawString("ESC - pause", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 14));
+        g2.drawString("SPACE - block", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 14));
+        g2.drawString("ESC - pause", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 15));
 
         g2.setColor(Color.RED);
         int LORE_OFFSET = 12;
