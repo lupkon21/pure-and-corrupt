@@ -15,7 +15,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Frame extends JFrame implements KeyListener, ActionListener, MouseListener {
-    private MapPanel mapPanel;
+    private final MapPanel mapPanel;
     private final StatusBarPanel statusBarPanel;
     private final DeathScreenPanel deathScreenPanel;
     private final PauseMenuPanel pauseMenuPanel;
@@ -150,11 +150,10 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        if(mapPanel.getMap().isGamePaused()) {
+        if(isGamePaused()) {
             stopTimers();
-            statusBarPanel.getHealthBar().setStatus(0);
             statusBarPanel.getHealthBar().repaint();
-        } else if(mapPanel.getMap().isGameOver()){
+        } else if(isGameOver()){
             endGame();
         }
         else if(actionEvent.getSource().equals(enemyMovementTimer)) {
@@ -167,7 +166,15 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
     }
 
     private boolean isGamePausedOrOver() {
-        return mapPanel.getMap().isGameOver() || mapPanel.getMap().isGamePaused();
+        return isGameOver() || isGamePaused();
+    }
+
+    private boolean isGamePaused() {
+        return mapPanel.getMap().isGamePaused();
+    }
+
+    private boolean isGameOver() {
+        return mapPanel.getMap().isGameOver();
     }
 
     public void initializeTimers() {
@@ -195,10 +202,6 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         return mapPanel;
     }
 
-    public void setMapPanel(MapPanel mapPanel) {
-        this.mapPanel = mapPanel;
-    }
-
     @Override
     public void mouseClicked(MouseEvent e) {
         int x=e.getX();
@@ -207,7 +210,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
             if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE*2)&&y<(MapConstants.GRID_CELL_SIZE*4)){
                 System.exit(0);
             }
-            if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
+            if(isGamePaused() && x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
                 resumeGame();
             }
         }
