@@ -101,7 +101,7 @@ public class Player extends PaintableComponent {
 
     public boolean hasItem(ItemType itemType) {
         for(Item item : items) {
-            if(item.getItemType().equals(itemType)) return true;
+            if(item != null && item.getItemType().equals(itemType)) return true;
         }
         return false;
     }
