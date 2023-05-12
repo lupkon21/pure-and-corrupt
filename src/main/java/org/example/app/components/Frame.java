@@ -2,6 +2,7 @@ package org.example.app.components;
 
 import org.example.app.components.map.MapPanel;
 import org.example.app.components.map.components.dynamic.Player;
+import org.example.app.components.pauseMenu.DeathScreenPanel;
 import org.example.app.components.pauseMenu.PauseMenuPanel;
 import org.example.app.components.statusBar.StatusBarPanel;
 import org.example.app.logic.combat.CombatAction;
@@ -16,6 +17,7 @@ import java.awt.event.*;
 public class Frame extends JFrame implements KeyListener, ActionListener, MouseListener {
     private MapPanel mapPanel;
     private final StatusBarPanel statusBarPanel;
+    private final DeathScreenPanel deathScreenPanel;
     private final PauseMenuPanel pauseMenuPanel;
     private Timer enemyMovementTimer;
     private Timer statusRefreshTimer;
@@ -28,6 +30,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         this.setLayout(new BorderLayout());
         mapPanel = new MapPanel();
         statusBarPanel = new StatusBarPanel(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp());
+        deathScreenPanel = new DeathScreenPanel();
         pauseMenuPanel = new PauseMenuPanel();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
@@ -124,6 +127,15 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         this.repaint();
     }
 
+    private void endGame() {
+        stopTimers();
+        this.remove(mapPanel);
+        this.remove(statusBarPanel);
+        this.add(deathScreenPanel, BorderLayout.CENTER);
+        this.pack();
+        this.repaint();
+    }
+
     private void resumeGame() {
         if(!mapPanel.getMap().isGamePaused()) return;
 
@@ -138,11 +150,14 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        if(isGamePausedOrOver()) {
+        if(mapPanel.getMap().isGamePaused()) {
             stopTimers();
             statusBarPanel.getHealthBar().setStatus(0);
             statusBarPanel.getHealthBar().repaint();
-        } else if(actionEvent.getSource().equals(enemyMovementTimer)) {
+        } else if(mapPanel.getMap().isGameOver()){
+            endGame();
+        }
+        else if(actionEvent.getSource().equals(enemyMovementTimer)) {
             mapPanel.getMap().getComponents().getDynamic().moveEnemies();
             mapPanel.repaint();
         } else if(actionEvent.getSource().equals(statusRefreshTimer)) {

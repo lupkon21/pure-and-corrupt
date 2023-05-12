@@ -1481,13 +1481,13 @@
         {
           "x": 37,
           "y": 22,
-          "id_type": 1,
+          "id_type": 6,
           "id_asset": 3
         },
         {
           "x": 22,
           "y": 2,
-          "id_type": 7,
+          "id_type": 1,
           "id_asset": 3
         }
       ],

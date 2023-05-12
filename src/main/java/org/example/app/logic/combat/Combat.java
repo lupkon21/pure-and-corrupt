@@ -34,7 +34,7 @@ public class Combat {
     }
 
     public static void playerDefaultAttack() {
-        if(enemy != null && checkCooldown(lastPlayerAttackTime, player.getAttackCooldown())) {
+        if(enemy != null && checkCooldown(lastPlayerAttackTime, player.getAttackCooldown())&&!player.isDefendActive()) {
             enemy.setHp(enemy.getHp() - player.getAttackDamage());
             lastPlayerAttackTime = System.currentTimeMillis();
             if(enemy.getHp() <= 0) enemyDeath(enemy);
