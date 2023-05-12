@@ -21,6 +21,7 @@ public class Render {
         player.setAttackCooldown(playerLastState.getAttackCooldown());
         player.setDefendCooldown(playerLastState.getDefendCooldown());
         player.setDefendTime(playerLastState.getDefendTime());
+        player.setItems(playerLastState.getItems());
 
         frame.repaint();
         frame.getContentPane().repaint();
