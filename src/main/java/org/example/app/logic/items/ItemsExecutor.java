@@ -21,12 +21,12 @@ public class ItemsExecutor {
             if(player.hasItem(ItemType.LIFECRYSTAL)) {
                 ItemsConstants.LIFECRYSTAL_EFFECTIVNESS += ItemsConstants.LIFECRYSTAL_EFFECTIVNESS_INITIAL;
             } else {
-                player.getItems().add(item);
+                player.getItems().set(0,item);
             }
         } else if(itemType.equals(ItemType.SWORDBREAK)) {
-            player.getItems().add(item);
+            player.getItems().set(1,item);
         } else if(itemType.equals(ItemType.EYEWHIP)) {
-            player.getItems().add(item);
+            player.getItems().set(2,item);
         } else if(itemType.equals(ItemType.THORNPARRY)) {
             player.setDefendTime(player.getDefendTime() + ItemsConstants.THORNPARRY_DEFEND_TIME);
         } else if(itemType.equals(ItemType.CORRUPTED_BOOTS)) {

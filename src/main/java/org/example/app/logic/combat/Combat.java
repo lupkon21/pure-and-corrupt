@@ -99,7 +99,7 @@ public class Combat {
 
     public static boolean hasPlayerItem(ItemType itemType) {
         for(Item i : player.getItems()) {
-            if(i.getItemType().equals(itemType)) return true;
+            if(i != null && i.getItemType().equals(itemType)) return true;
         }
         return false;
     }
