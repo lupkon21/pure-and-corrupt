@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.app.logic.combat.Combat;
 import org.example.app.logic.combat.CombatDetection;
+import org.example.app.logic.items.ItemType;
 import org.example.app.logic.movement.CollisionDetection;
 import org.example.app.logic.movement.Direction;
 import org.example.app.components.map.components.root.PaintableComponent;
@@ -93,5 +94,12 @@ public class Player extends PaintableComponent {
             return;
         }
         this.hp = hp;
+    }
+
+    public boolean hasItem(ItemType itemType) {
+        for(Item item : items) {
+            if(item.getItemType().equals(itemType)) return true;
+        }
+        return false;
     }
 }

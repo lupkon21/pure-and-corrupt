@@ -5,7 +5,7 @@ public enum ItemType {
     LIFECRYSTAL(1),
     SWORDBREAK(2),
     EYEWHIP(3),
-    THORNPARTY(4),
+    THORNPARRY(4),
     CORRUPTED_BOOTS(5),
     MIGHTY_TOOTH(6),
     FLESH_CROSS(7);

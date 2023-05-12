@@ -42,9 +42,13 @@ public class Combat {
     }
     public static void playerDefend(){
         if(enemy != null && checkCooldown(lastPlayerDefendTime, player.getDefendCooldown())) {
+            System.out.println(player.getDefendTime());
             player.setDefendActive(true);
             lastPlayerDefendTime = System.currentTimeMillis();
-            Timer timer = new Timer(player.getDefendTime(), argument -> player.setDefendActive(false));
+            Timer timer = new Timer(player.getDefendTime(), argument -> {
+                player.setDefendActive(false);
+                System.out.println(player.isDefendActive());
+            });
             timer.setRepeats(false);
             timer.start();
         }

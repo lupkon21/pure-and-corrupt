@@ -18,19 +18,22 @@ public class ItemsExecutor {
         System.out.println(itemType);
 
         if(itemType.equals(ItemType.LIFECRYSTAL)) {
-            player.getItems().add(item);
+            if(player.hasItem(ItemType.LIFECRYSTAL)) {
+                ItemsConstants.LIFECRYSTAL_EFFECTIVNESS += ItemsConstants.LIFECRYSTAL_EFFECTIVNESS_INITIAL;
+            } else {
+                player.getItems().add(item);
+            }
         } else if(itemType.equals(ItemType.SWORDBREAK)) {
             player.getItems().add(item);
         } else if(itemType.equals(ItemType.EYEWHIP)) {
             player.getItems().add(item);
-        } else if(itemType.equals(ItemType.THORNPARTY)) {
-            player.setAttackDamage(ItemsConstants.THORNPARTY_DAMAGE);
+        } else if(itemType.equals(ItemType.THORNPARRY)) {
+            player.setDefendTime(player.getDefendTime() + ItemsConstants.THORNPARRY_DEFEND_TIME);
         } else if(itemType.equals(ItemType.CORRUPTED_BOOTS)) {
             MapConstants.PLAYER_MOVEMENT_TIMER = ItemsConstants.CORRUPTED_BOOTS_MOVESPEED;
         } else if(itemType.equals(ItemType.MIGHTY_TOOTH)) {
-            player.setAttackDamage(ItemsConstants.THORNPARTY_DAMAGE);
+            player.setAttackDamage(player.getAttackDamage() + ItemsConstants.MIGHTY_TOOTH_DAMAGE_AMPLIFICATION);
         } else if(itemType.equals(ItemType.FLESH_CROSS)) {
-            System.out.println(MapConstants.PLAYER_MAX_HP);
             player.setHp(ItemsConstants.FLESH_CROSS_MAX_HP);
         }
     }
