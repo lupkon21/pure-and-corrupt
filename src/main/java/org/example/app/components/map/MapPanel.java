@@ -47,6 +47,7 @@ public class MapPanel extends JPanel {
     public void loadMap(Integer id) {
         this.id = id;
         map = Loader.loadMap(id);
+        if(map.getId() == null) System.exit(1);
         initializeLogic(map);
     }
 }
