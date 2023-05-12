@@ -1,6 +1,7 @@
 package org.example.app.components.map.components.root;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.app.constants.MapConstants;
@@ -17,6 +18,7 @@ import java.awt.image.BufferedImage;
 public class PaintableComponent extends DefaultComponent implements Paintable {
 
     protected Integer idAsset;
+    @JsonIgnore
     protected BufferedImage asset;
     protected Integer idAssetDir;
 
