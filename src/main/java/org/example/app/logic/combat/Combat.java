@@ -4,7 +4,6 @@ import lombok.*;
 import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Enemy;
 
-import org.example.app.components.map.components.dynamic.Item;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.constants.ItemsConstants;
 import org.example.app.logic.items.ItemType;
@@ -98,9 +97,6 @@ public class Combat {
     }
 
     public static boolean hasPlayerItem(ItemType itemType) {
-        for(Item i : player.getItems()) {
-            if(i != null && i.getItemType().equals(itemType)) return true;
-        }
-        return false;
+        return player.hasItem(itemType);
     }
 }
