@@ -12,6 +12,7 @@ import org.example.app.components.map.components.root.PaintableComponent;
 import org.example.app.constants.MapConstants;
 import org.example.app.logic.render.Loader;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 @Getter
@@ -110,5 +111,13 @@ public class Player extends PaintableComponent {
             if(item != null && item.getItemType().equals(itemType)) return true;
         }
         return false;
+    }
+
+    @Override
+    public void paint(Graphics2D g2) {
+        super.paint(g2);
+        if(this.isDefendActive) {
+            g2.drawImage(Loader.loadAsset(MapConstants.ASSET_PATH + "effects/defend.png"), this.getX() + (MapConstants.GRID_CELL_SIZE / 2), this.getY(), null);
+        }
     }
 }

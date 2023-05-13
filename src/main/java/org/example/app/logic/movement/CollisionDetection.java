@@ -56,7 +56,7 @@ public class CollisionDetection {
     public static void checkItemCollision() {
         for(PaintableComponent i : items) {
             if(player.getX().equals(i.getX()) && player.getY().equals(i.getY())) {
-                if(i instanceof Objective) {
+                if(i instanceof Objective && map.getComponents().getDynamic().getEnemies().size() == 0) {
                     Render.renderNextMap();
                 } else if(i instanceof Item) {
                     map.getComponents().getDynamic().getItems().remove(i);
