@@ -3,6 +3,7 @@ package org.example.app.components;
 import org.example.app.components.map.MapPanel;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.components.pauseMenu.DeathScreenPanel;
+import org.example.app.components.pauseMenu.EndingScreenPanel;
 import org.example.app.components.pauseMenu.PauseMenuPanel;
 import org.example.app.components.statusBar.StatusBarPanel;
 import org.example.app.logic.combat.Combat;
@@ -20,6 +21,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
     private final MapPanel mapPanel;
     private final StatusBarPanel statusBarPanel;
     private final DeathScreenPanel deathScreenPanel;
+    private final EndingScreenPanel endingScreenPanel;
     private final PauseMenuPanel pauseMenuPanel;
     private Timer enemyMovementTimer;
     private Timer statusRefreshTimer;
@@ -34,6 +36,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         statusBarPanel = new StatusBarPanel(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp());
         deathScreenPanel = new DeathScreenPanel();
         pauseMenuPanel = new PauseMenuPanel();
+        endingScreenPanel = new EndingScreenPanel();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
         this.setIconImage(Loader.loadAsset(MapConstants.ASSET_PATH + "icon/icon.png"));
@@ -156,6 +159,15 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
         this.remove(pauseMenuPanel);
+        this.pack();
+        this.repaint();
+    }
+
+    private void finishGame(){
+        stopTimers();
+        this.remove(mapPanel);
+        this.remove(statusBarPanel);
+        this.add(endingScreenPanel, BorderLayout.CENTER);
         this.pack();
         this.repaint();
     }

@@ -6,14 +6,17 @@ import lombok.ToString;
 import org.example.app.constants.MapConstants;
 import org.example.app.constants.PauseMenuConstants;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 @Getter
 @Setter
 @ToString
-public class DeathScreenPanel extends JPanel {
+public class EndingScreenPanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
@@ -24,8 +27,7 @@ public class DeathScreenPanel extends JPanel {
         g2.setColor(Color.RED);
         g2.setFont(new Font("Impact", Font.BOLD, 100));
         g2.drawString("Pure & Corrupt", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 3));
-        g2.setFont(new Font("Impact", Font.BOLD, 200));
-        g2.drawString("YOU DIED", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 8));
+        g2.drawString("Congratulations, YOU WON!", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 8));
 
         g2.setFont(new Font("Impact", Font.PLAIN, 48));
         g2.drawString("Credits:", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 10));
@@ -36,11 +38,27 @@ public class DeathScreenPanel extends JPanel {
         g2.drawString("Příběh - Martin Šoupa", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 13));
         g2.drawString("Grafika - František Břenek", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 14));
 
+        g2.setFont(new Font("Impact", Font.PLAIN, 20));
+        g2.drawString("As the last remains of the Hell's corruption fall under your blade, you feel relief. But for just a moment, before you enter the portal to the next layer of Hell,", (MapConstants.GRID_CELL_SIZE ), (MapConstants.GRID_CELL_SIZE * 18));
+        g2.drawString("You realize there isn't any more left. You killed them all. Purified all the abominations in the eyes of Heavens. The portal swirls, but it finally steadies and", (MapConstants.GRID_CELL_SIZE), (MapConstants.GRID_CELL_SIZE * 19));
+        g2.drawString("you can see yourself in the reflection. Or what has become of you. You look far worse then anything that fell under your Pure yet Corrupted hands. Their strength", (MapConstants.GRID_CELL_SIZE), (MapConstants.GRID_CELL_SIZE * 20));
+        g2.drawString("was in numbers. Yours is in raw power, gathered through all the different layers of Hell and grafted onto you. As the realization of power envelops your mind, you", (MapConstants.GRID_CELL_SIZE), (MapConstants.GRID_CELL_SIZE * 21));
+        g2.drawString("step into the portal and leave the demons of flesh that crawled out of your corrupted armor behind. You have turned into the new Hell Overlord. You have won. You alone.", (MapConstants.GRID_CELL_SIZE), (MapConstants.GRID_CELL_SIZE * 22));
+
         g2.setColor(Color.RED);
         g2.drawRect((MapConstants.GRID_CELL_SIZE * 30), (MapConstants.GRID_CELL_SIZE),(MapConstants.GRID_CELL_SIZE * 9),(MapConstants.GRID_CELL_SIZE * 2));
         g2.setFont(new Font("Impact", Font.BOLD, 48));
         g2.drawString("QUIT GAME",(int) (MapConstants.GRID_CELL_SIZE * 31.5), (int) (MapConstants.GRID_CELL_SIZE * 2.5));
+    }
 
+    private static BufferedImage loadImageFromFile(String imagePath) {
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File(imagePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return image;
     }
 
     @Override
