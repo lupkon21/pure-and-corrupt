@@ -12,6 +12,7 @@ import org.example.app.constants.MapConstants;
 import org.example.app.logic.render.Loader;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -105,5 +106,13 @@ public class Enemy extends PaintableComponent implements ActionListener {
     public void loadAsset() {
         if(this.idAsset == null || this.idAssetDir == null || idType == null) return;
         this.asset = Loader.loadAsset(MapConstants.ASSET_PATH + this.idAssetDir + "/" + idType + "/" + this.idAsset  + ".png");
+    }
+
+    @Override
+    public void paint(Graphics2D g2) {
+        super.paint(g2);
+        if(this.isCombatActive) {
+            g2.drawImage(Loader.loadAsset(MapConstants.ASSET_PATH + "effects/warning.png"), this.getX() + (MapConstants.GRID_CELL_SIZE / 2), this.getY(), null);
+        }
     }
 }
