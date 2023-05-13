@@ -15,12 +15,16 @@ import java.awt.*;
 public class StatusBarPanel extends JPanel {
 
     private HealthBar healthBar;
+    private ItemsBar itemsBar;
 
     public StatusBarPanel(Integer status) {
         this.setLayout(null);
         healthBar = new HealthBar(status);
-        healthBar.setBounds(MapConstants.GRID_CELL_SIZE * 4, MapConstants.GRID_CELL_SIZE, (int) healthBar.getPreferredSize().getWidth(), (int) healthBar.getPreferredSize().getHeight());
+        healthBar.setBounds(MapConstants.GRID_CELL_SIZE * 7, MapConstants.GRID_CELL_SIZE, (int) healthBar.getPreferredSize().getWidth(), (int) healthBar.getPreferredSize().getHeight());
+        itemsBar = new ItemsBar();
+        itemsBar.setBounds(MapConstants.GRID_CELL_SIZE * 23, 0, (int) itemsBar.getPreferredSize().getWidth(), (int) itemsBar.getPreferredSize().getHeight());
         this.add(healthBar);
+        this.add(itemsBar);
     }
 
     @Override
@@ -33,6 +37,7 @@ public class StatusBarPanel extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.LIGHT_GRAY);
         g2.fillRect(0,0, StatusBarConstants.SIZE_X,StatusBarConstants.SIZE_Y);
+        itemsBar.repaint();
         healthBar.repaint();
     }
 }

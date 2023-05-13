@@ -1,9 +1,10 @@
 package org.example.app.logic.combat;
 
 public enum CombatAction {
-    DEFAULT_ATTACK(1),
-    ITEM_ATTACK(2),
-    DEFEND(3);
+    ITEM_ATTACK_1(1),
+    ITEM_ATTACK_2(2),
+    DEFAULT_ATTACK(3),
+    DEFEND(4);
 
     private final Integer id;
     CombatAction(Integer id) {

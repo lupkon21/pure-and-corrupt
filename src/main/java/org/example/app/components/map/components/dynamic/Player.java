@@ -42,9 +42,6 @@ public class Player extends PaintableComponent {
         direction = Direction.EAST;
         Loader.loadStats(this);
         this.items = new ArrayList<>();
-        items.add(null);
-        items.add(null);
-        items.add(null);
         MapConstants.PLAYER_MAX_HP = hp;
     }
 

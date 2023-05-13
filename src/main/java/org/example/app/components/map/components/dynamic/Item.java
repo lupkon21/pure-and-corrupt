@@ -18,12 +18,14 @@ public class Item extends PaintableComponent {
 
     private Integer idType;
     private ItemType itemType;
+    private boolean activatable;
 
     @JsonCreator
     public Item(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset, @JsonProperty("id_type") Integer idType) {
         super(x,y,idAsset);
         this.idType = idType;
         this.itemType = ItemType.getById(idType);
+        if(idType == ItemType.EYEWHIP.getId() || idType == ItemType.SWORDBREAK.getId()) activatable = true;
         this.loadAsset();
     }
 

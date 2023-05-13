@@ -4,9 +4,11 @@ import lombok.*;
 import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Enemy;
 
+import org.example.app.components.map.components.dynamic.Item;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.constants.ItemsConstants;
 import org.example.app.logic.items.ItemType;
+import org.example.app.logic.items.ItemsExecutor;
 import org.example.app.logic.movement.CollisionDetection;
 
 import javax.swing.*;
@@ -21,6 +23,8 @@ public class Combat {
     private static Map map;
     private static long lastPlayerAttackTime;
     private static long lastPlayerDefendTime;
+    private static long lastPlayerItem1Time;
+    private static long lastPlayerItem2Time;
 
     public static void setEnemy(Enemy enemy) {
         Combat.enemy = enemy;
@@ -53,8 +57,18 @@ public class Combat {
         }
     }
 
-    public static void playerItemAttack() {
+    public static void playerItemAttack(CombatAction action) {
+        if(!player.isCombatActive() || player.isDefendActive()) return;
+        Item item = ItemsExecutor.findItemByAction(action);
+        if(item == null) return;
 
+        if(item.getItemType().equals(ItemType.SWORDBREAK)) {
+            enemy.setHp(enemy.getHp() - ItemsConstants.SWORDBREAK_DAMAGE);
+        } else if(item.getItemType().equals(ItemType.EYEWHIP)) {
+            enemy.setHp(enemy.getHp() - ItemsConstants.EYEWHIP_DAMAGE);
+        }
+
+        if(enemy.getHp() <= 0) enemyDeath(enemy);
     }
 
     public static void enemyAttack(Enemy enemy) {

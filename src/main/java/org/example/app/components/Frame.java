@@ -5,6 +5,7 @@ import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.components.pauseMenu.DeathScreenPanel;
 import org.example.app.components.pauseMenu.PauseMenuPanel;
 import org.example.app.components.statusBar.StatusBarPanel;
+import org.example.app.logic.combat.Combat;
 import org.example.app.logic.combat.CombatAction;
 import org.example.app.logic.movement.Direction;
 import org.example.app.constants.MapConstants;
@@ -91,6 +92,11 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
             case 10:
                 resumeGame();
                 break;
+            case 81:
+                combatActionPlayer(CombatAction.ITEM_ATTACK_1);
+            case 69:
+                combatActionPlayer(CombatAction.ITEM_ATTACK_2);
+                break;
         }
     }
 
@@ -112,6 +118,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         }
         if(action.equals(CombatAction.DEFEND)) {
             player.defend();
+        }
+        if(action.equals(CombatAction.ITEM_ATTACK_1) || action.equals(CombatAction.ITEM_ATTACK_2)) {
+            Combat.playerItemAttack(action);
         }
     }
 
@@ -153,6 +162,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         if(isGamePaused()) {
             stopTimers();
             statusBarPanel.getHealthBar().repaint();
+            statusBarPanel.getItemsBar().repaint();
         } else if(isGameOver()){
             endGame();
         }
@@ -162,6 +172,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         } else if(actionEvent.getSource().equals(statusRefreshTimer)) {
             statusBarPanel.getHealthBar().setStatus(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp());
             statusBarPanel.getHealthBar().repaint();
+            statusBarPanel.getItemsBar().repaint();
         }
     }
 
@@ -179,7 +190,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
 
     public void initializeTimers() {
         enemyMovementTimer = new Timer(MapConstants.ENEMY_MOVEMENT_TIMER,this);
-        statusRefreshTimer = new Timer(10, this);
+        statusRefreshTimer = new Timer(200, this);
         enemyMovementTimer.start();
         statusRefreshTimer.start();
 

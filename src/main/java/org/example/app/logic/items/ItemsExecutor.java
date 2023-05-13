@@ -5,6 +5,9 @@ import org.example.app.components.map.components.dynamic.Item;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.constants.ItemsConstants;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.combat.CombatAction;
+
+import java.util.ArrayList;
 
 public class ItemsExecutor {
     private static Player player;
@@ -21,12 +24,12 @@ public class ItemsExecutor {
             if(player.hasItem(ItemType.LIFECRYSTAL)) {
                 ItemsConstants.LIFECRYSTAL_EFFECTIVNESS += ItemsConstants.LIFECRYSTAL_EFFECTIVNESS_INITIAL;
             } else {
-                player.getItems().set(0,item);
+                player.getItems().add(item);
             }
-        } else if(itemType.equals(ItemType.SWORDBREAK)) {
-            player.getItems().set(1,item);
-        } else if(itemType.equals(ItemType.EYEWHIP)) {
-            player.getItems().set(2,item);
+        } else if(itemType.equals(ItemType.SWORDBREAK) && !player.hasItem(itemType)) {
+            player.getItems().add(item);
+        } else if(itemType.equals(ItemType.EYEWHIP) && !player.hasItem(itemType)) {
+            player.getItems().add(item);
         } else if(itemType.equals(ItemType.THORNPARRY)) {
             player.setDefendTime(player.getDefendTime() + ItemsConstants.THORNPARRY_DEFEND_TIME);
         } else if(itemType.equals(ItemType.CORRUPTED_BOOTS)) {
@@ -36,5 +39,27 @@ public class ItemsExecutor {
         } else if(itemType.equals(ItemType.FLESH_CROSS)) {
             player.setHp(ItemsConstants.FLESH_CROSS_MAX_HP);
         }
+    }
+
+    public static Item findItemByAction(CombatAction action) {
+        ArrayList<Item> activatableItems = findActivatableItems();
+        if(activatableItems.size() == 0) return null;
+
+        if(action.equals(CombatAction.ITEM_ATTACK_1) && activatableItems.get(0) != null) {
+            return activatableItems.get(0);
+        }
+        if(action.equals(CombatAction.ITEM_ATTACK_2) && activatableItems.get(1) != null) {
+            return activatableItems.get(1);
+        }
+
+        return null;
+    }
+
+    public static ArrayList<Item> findActivatableItems() {
+        ArrayList<Item> activatableItems = new ArrayList<>();
+        for(Item i : player.getItems()) {
+            if(i.isActivatable()) activatableItems.add(i);
+        }
+        return activatableItems;
     }
 }
