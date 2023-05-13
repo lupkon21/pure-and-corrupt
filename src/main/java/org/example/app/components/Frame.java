@@ -9,6 +9,7 @@ import org.example.app.logic.combat.Combat;
 import org.example.app.logic.combat.CombatAction;
 import org.example.app.logic.movement.Direction;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.render.Loader;
 import org.example.app.logic.render.Render;
 
 import javax.swing.*;
@@ -35,6 +36,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         pauseMenuPanel = new PauseMenuPanel();
         this.add(mapPanel, BorderLayout.NORTH);
         this.add(statusBarPanel, BorderLayout.SOUTH);
+        this.setIconImage(Loader.loadAsset(MapConstants.ASSET_PATH + "icon/icon.png"));
 
         this.addKeyListener(this);
         this.addMouseListener(this);
