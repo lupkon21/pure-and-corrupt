@@ -5,6 +5,7 @@ import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Enemy;
 
 import org.example.app.components.map.components.dynamic.Item;
+import org.example.app.components.map.components.dynamic.Objective;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.constants.ItemsConstants;
 import org.example.app.logic.items.ItemType;
@@ -108,6 +109,10 @@ public class Combat {
         map.getComponents().getDynamic().getEnemies().remove(enemy);
         if(hasPlayerItem(ItemType.LIFECRYSTAL)) {
             player.setHp(player.getHp() + ItemsConstants.LIFECRYSTAL_EFFECTIVNESS);
+        }
+        if(map.getComponents().getDynamic().getEnemies().size() == 0) {
+            Objective objective = map.getComponents().getDynamic().getObjective();
+            objective.setVisible(true);
         }
         Combat.initialize(map);
         CollisionDetection.initialize(map);
