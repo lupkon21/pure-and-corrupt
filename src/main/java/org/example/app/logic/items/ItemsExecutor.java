@@ -1,5 +1,7 @@
 package org.example.app.logic.items;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Item;
 import org.example.app.components.map.components.dynamic.Player;
@@ -9,11 +11,17 @@ import org.example.app.logic.combat.CombatAction;
 
 import java.util.ArrayList;
 
+@Getter
+@Setter
 public class ItemsExecutor {
     private static Player player;
+    private static Long lastItem1Time;
+    private static Long lastItem2Time;
 
     public static void initialize(Map map) {
         player = map.getComponents().getDynamic().getPlayer();
+        lastItem1Time = null;
+        lastItem2Time = null;
     }
 
     public static void execute(Item item) {
@@ -47,8 +55,7 @@ public class ItemsExecutor {
 
         if(action.equals(CombatAction.ITEM_ATTACK_1) && activatableItems.get(0) != null) {
             return activatableItems.get(0);
-        }
-        if(action.equals(CombatAction.ITEM_ATTACK_2) && activatableItems.get(1) != null) {
+        } else if(action.equals(CombatAction.ITEM_ATTACK_2) && activatableItems.size() > 1 && activatableItems.get(1) != null) {
             return activatableItems.get(1);
         }
 

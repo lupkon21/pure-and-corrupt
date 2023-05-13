@@ -45,7 +45,7 @@ public class ItemsBar extends JPanel {
             int x = (i + 5) * (MapConstants.GRID_CELL_SIZE) + i * MapConstants.GRID_CELL_SIZE;
             g2.drawImage(item.getAsset(), x, MapConstants.GRID_CELL_SIZE, null);
             g2.drawString("10 s", x, (int) (2.66 * MapConstants.GRID_CELL_SIZE));
-            g2.drawString(i == 0 ? "  G" : "  E", x, (int) (MapConstants.GRID_CELL_SIZE * 0.75));
+            g2.drawString(i == 0 ? "  Q" : "  E", x, (int) (MapConstants.GRID_CELL_SIZE * 0.75));
         }
     }
 }
