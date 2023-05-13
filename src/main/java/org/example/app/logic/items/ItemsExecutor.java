@@ -7,6 +7,7 @@ import org.example.app.components.map.components.dynamic.Item;
 import org.example.app.components.map.components.dynamic.Player;
 import org.example.app.constants.ItemsConstants;
 import org.example.app.constants.MapConstants;
+import org.example.app.logic.combat.Combat;
 import org.example.app.logic.combat.CombatAction;
 
 import java.util.ArrayList;
@@ -15,13 +16,9 @@ import java.util.ArrayList;
 @Setter
 public class ItemsExecutor {
     private static Player player;
-    private static Long lastItem1Time;
-    private static Long lastItem2Time;
 
     public static void initialize(Map map) {
         player = map.getComponents().getDynamic().getPlayer();
-        lastItem1Time = null;
-        lastItem2Time = null;
     }
 
     public static void execute(Item item) {
@@ -34,10 +31,12 @@ public class ItemsExecutor {
             } else {
                 player.getItems().add(item);
             }
-        } else if(itemType.equals(ItemType.SWORDBREAK) && !player.hasItem(itemType)) {
-            player.getItems().add(item);
-        } else if(itemType.equals(ItemType.EYEWHIP) && !player.hasItem(itemType)) {
-            player.getItems().add(item);
+        } else if(itemType.equals(ItemType.SWORDBREAK) && !player.hasActivatableItem(itemType)) {
+            player.getActivatableItems().add(item);
+            setItemAttackTime(item);
+        } else if(itemType.equals(ItemType.EYEWHIP) && !player.hasActivatableItem(itemType)) {
+            player.getActivatableItems().add(item);
+            setItemAttackTime(item);
         } else if(itemType.equals(ItemType.THORNPARRY)) {
             player.setDefendTime(player.getDefendTime() + ItemsConstants.THORNPARRY_DEFEND_TIME);
         } else if(itemType.equals(ItemType.CORRUPTED_BOOTS)) {
@@ -63,10 +62,12 @@ public class ItemsExecutor {
     }
 
     public static ArrayList<Item> findActivatableItems() {
-        ArrayList<Item> activatableItems = new ArrayList<>();
-        for(Item i : player.getItems()) {
-            if(i.isActivatable()) activatableItems.add(i);
-        }
-        return activatableItems;
+        return player.getActivatableItems();
+    }
+
+    private static void setItemAttackTime(Item item) {
+        int index = player.getActivatableItems().indexOf(item);
+        if(index == 0) Combat.setLastPlayerItem1Time(System.currentTimeMillis());
+        else if(index == 1) Combat.setLastPlayerItem2Time(System.currentTimeMillis());
     }
 }

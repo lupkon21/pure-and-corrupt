@@ -12,6 +12,7 @@ import org.example.app.logic.items.ItemsExecutor;
 import org.example.app.logic.movement.CollisionDetection;
 
 import javax.swing.*;
+import java.sql.Timestamp;
 
 @Setter
 @Getter
@@ -23,19 +24,28 @@ public class Combat {
     private static Map map;
     private static long lastPlayerAttackTime;
     private static long lastPlayerDefendTime;
-    private static long lastPlayerItem1Time;
-    private static long lastPlayerItem2Time;
+    private static Long lastPlayerItem1Time;
+    private static Long lastPlayerItem2Time;
 
     public static void setEnemy(Enemy enemy) {
         Combat.enemy = enemy;
     }
+    public static void setLastPlayerItem1Time(Long lastPlayerItem1Time) {
+        Combat.lastPlayerItem1Time = lastPlayerItem1Time;
+    }
+
+    public static void setLastPlayerItem2Time(Long lastPlayerItem2Time) {
+        Combat.lastPlayerItem2Time = lastPlayerItem2Time;
+    }
+
     public static void initialize(Map map) {
         Combat.map = map;
         Combat.player = map.getComponents().getDynamic().getPlayer();
         lastPlayerAttackTime = System.currentTimeMillis();
         lastPlayerDefendTime = System.currentTimeMillis();
+        lastPlayerItem1Time = System.currentTimeMillis();
+        lastPlayerItem2Time = System.currentTimeMillis();
     }
-
     public static void playerDefaultAttack() {
         if(enemy != null && checkCooldown(lastPlayerAttackTime, player.getAttackCooldown())&&!player.isDefendActive()) {
             enemy.setHp(enemy.getHp() - player.getAttackDamage());
@@ -43,6 +53,7 @@ public class Combat {
             if(enemy.getHp() <= 0) enemyDeath(enemy);
         }
     }
+
     public static void playerDefend(){
         if(enemy != null && checkCooldown(lastPlayerDefendTime, player.getDefendCooldown())) {
             System.out.println(player.getDefendTime());
@@ -62,13 +73,17 @@ public class Combat {
         Item item = ItemsExecutor.findItemByAction(action);
         if(item == null) return;
 
-        if(item.getItemType().equals(ItemType.SWORDBREAK)) {
-            enemy.setHp(enemy.getHp() - ItemsConstants.SWORDBREAK_DAMAGE);
-        } else if(item.getItemType().equals(ItemType.EYEWHIP)) {
-            enemy.setHp(enemy.getHp() - ItemsConstants.EYEWHIP_DAMAGE);
+        if(action.equals(CombatAction.ITEM_ATTACK_1)) {
+            if(executePlayerItemAttack(item,lastPlayerItem1Time)) {
+                System.out.println(new Timestamp(System.currentTimeMillis()) + " -> executed item 1");
+                lastPlayerItem1Time = System.currentTimeMillis();
+            }
+        } else if(action.equals(CombatAction.ITEM_ATTACK_2)) {
+            if(executePlayerItemAttack(item,lastPlayerItem2Time)) {
+                System.out.println(new Timestamp(System.currentTimeMillis()) + " -> executed item 2");
+                lastPlayerItem2Time = System.currentTimeMillis();
+            }
         }
-
-        if(enemy.getHp() <= 0) enemyDeath(enemy);
     }
 
     public static void enemyAttack(Enemy enemy) {
@@ -112,5 +127,18 @@ public class Combat {
 
     public static boolean hasPlayerItem(ItemType itemType) {
         return player.hasItem(itemType);
+    }
+
+    private static boolean executePlayerItemAttack(Item item, Long lastTime) {
+        if(item.getItemType().equals(ItemType.SWORDBREAK) && checkCooldown(lastTime, ItemsConstants.SWORDBREAK_COOLDOWN)) {
+            enemy.setHp(enemy.getHp() - ItemsConstants.SWORDBREAK_DAMAGE);
+            return true;
+        } else if(item.getItemType().equals(ItemType.EYEWHIP) && checkCooldown(lastTime, ItemsConstants.EYEWHIP_COOLDOWN)) {
+            enemy.setHp(enemy.getHp() - ItemsConstants.EYEWHIP_DAMAGE);
+            return true;
+        }
+
+        if(enemy.getHp() <= 0) enemyDeath(enemy);
+        return false;
     }
 }

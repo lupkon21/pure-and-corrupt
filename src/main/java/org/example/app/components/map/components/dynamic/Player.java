@@ -32,6 +32,7 @@ public class Player extends PaintableComponent {
     private Integer defendCooldown;
     private Integer defendTime;
     private ArrayList<Item> items;
+    private ArrayList<Item> activatableItems;
 
     @JsonCreator
     public Player(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("id_asset") Integer idAsset) {
@@ -42,6 +43,7 @@ public class Player extends PaintableComponent {
         direction = Direction.EAST;
         Loader.loadStats(this);
         this.items = new ArrayList<>();
+        this.activatableItems = new ArrayList<>();
         MapConstants.PLAYER_MAX_HP = hp;
     }
 
@@ -98,6 +100,13 @@ public class Player extends PaintableComponent {
 
     public boolean hasItem(ItemType itemType) {
         for(Item item : items) {
+            if(item != null && item.getItemType().equals(itemType)) return true;
+        }
+        return false;
+    }
+
+    public boolean hasActivatableItem(ItemType itemType) {
+        for(Item item : activatableItems) {
             if(item != null && item.getItemType().equals(itemType)) return true;
         }
         return false;
