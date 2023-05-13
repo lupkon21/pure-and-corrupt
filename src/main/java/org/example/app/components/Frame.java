@@ -94,6 +94,7 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
                 break;
             case 81:
                 combatActionPlayer(CombatAction.ITEM_ATTACK_1);
+                break;
             case 69:
                 combatActionPlayer(CombatAction.ITEM_ATTACK_2);
                 break;

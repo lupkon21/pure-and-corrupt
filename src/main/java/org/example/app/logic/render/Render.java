@@ -22,14 +22,11 @@ public class Render {
         player.setDefendCooldown(playerLastState.getDefendCooldown());
         player.setDefendTime(playerLastState.getDefendTime());
         player.setItems(playerLastState.getItems());
+        player.setActivatableItems(playerLastState.getActivatableItems());
 
         frame.repaint();
         frame.getContentPane().repaint();
         frame.initializeTimers();
-    }
-
-    public static Frame getFrame() {
-        return frame;
     }
 
     public static void setFrame(Frame frame) {

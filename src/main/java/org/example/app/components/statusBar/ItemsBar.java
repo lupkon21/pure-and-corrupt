@@ -2,8 +2,11 @@ package org.example.app.components.statusBar;
 
 import lombok.*;
 import org.example.app.components.map.components.dynamic.Item;
+import org.example.app.constants.ItemsConstants;
 import org.example.app.constants.MapConstants;
 import org.example.app.constants.StatusBarConstants;
+import org.example.app.logic.combat.Combat;
+import org.example.app.logic.items.ItemType;
 import org.example.app.logic.items.ItemsExecutor;
 
 import javax.swing.*;
@@ -15,10 +18,14 @@ import java.util.ArrayList;
 @ToString
 public class ItemsBar extends JPanel {
     private ArrayList<Item> activatableItems;
+    private ArrayList<Long> timers;
     private String label;
 
     public ItemsBar() {
         activatableItems = ItemsExecutor.findActivatableItems();
+        timers = new ArrayList<>();
+        timers.add(0, Combat.getLastPlayerItem1Time());
+        timers.add(1, Combat.getLastPlayerItem2Time());
         label = "Collected items:";
     }
 
@@ -31,6 +38,8 @@ public class ItemsBar extends JPanel {
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         activatableItems = ItemsExecutor.findActivatableItems();
+        timers.set(0, Combat.getLastPlayerItem1Time());
+        timers.set(1, Combat.getLastPlayerItem2Time());
 
         g2.setColor(Color.LIGHT_GRAY);
         g2.fillRect(0,0, StatusBarConstants.ITEMS_BAR_SIZE_X, StatusBarConstants.ITEMS_BAR_SIZE_Y);
@@ -44,8 +53,17 @@ public class ItemsBar extends JPanel {
             Item item = activatableItems.get(i);
             int x = (i + 5) * (MapConstants.GRID_CELL_SIZE) + i * MapConstants.GRID_CELL_SIZE;
             g2.drawImage(item.getAsset(), x, MapConstants.GRID_CELL_SIZE, null);
-            g2.drawString("10 s", x, (int) (2.66 * MapConstants.GRID_CELL_SIZE));
+            g2.drawString(" " + (calculateTime(item,i) == 0 ? " " : calculateTime(item,i) + " s"), x, (int) (2.66 * MapConstants.GRID_CELL_SIZE));
             g2.drawString(i == 0 ? "  Q" : "  E", x, (int) (MapConstants.GRID_CELL_SIZE * 0.75));
         }
+    }
+
+    private int calculateTime(Item item, Integer index) {
+        int cooldown = 0;
+        if(item.getItemType().equals(ItemType.SWORDBREAK)) cooldown = ItemsConstants.SWORDBREAK_COOLDOWN;
+        else if (item.getItemType().equals(ItemType.EYEWHIP)) cooldown = ItemsConstants.EYEWHIP_COOLDOWN;
+
+        int time = (int) ((cooldown - (System.currentTimeMillis() - timers.get(index))) / 1000) + 1;
+        return Math.max(time, 0);
     }
 }

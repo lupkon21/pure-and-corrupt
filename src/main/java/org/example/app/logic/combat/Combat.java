@@ -30,6 +30,15 @@ public class Combat {
     public static void setEnemy(Enemy enemy) {
         Combat.enemy = enemy;
     }
+
+    public static Long getLastPlayerItem1Time() {
+        return lastPlayerItem1Time;
+    }
+
+    public static Long getLastPlayerItem2Time() {
+        return lastPlayerItem2Time;
+    }
+
     public static void setLastPlayerItem1Time(Long lastPlayerItem1Time) {
         Combat.lastPlayerItem1Time = lastPlayerItem1Time;
     }
@@ -43,8 +52,6 @@ public class Combat {
         Combat.player = map.getComponents().getDynamic().getPlayer();
         lastPlayerAttackTime = System.currentTimeMillis();
         lastPlayerDefendTime = System.currentTimeMillis();
-        lastPlayerItem1Time = System.currentTimeMillis();
-        lastPlayerItem2Time = System.currentTimeMillis();
     }
     public static void playerDefaultAttack() {
         if(enemy != null && checkCooldown(lastPlayerAttackTime, player.getAttackCooldown())&&!player.isDefendActive()) {
@@ -76,11 +83,13 @@ public class Combat {
         if(action.equals(CombatAction.ITEM_ATTACK_1)) {
             if(executePlayerItemAttack(item,lastPlayerItem1Time)) {
                 System.out.println(new Timestamp(System.currentTimeMillis()) + " -> executed item 1");
+                System.out.println(action);
                 lastPlayerItem1Time = System.currentTimeMillis();
             }
         } else if(action.equals(CombatAction.ITEM_ATTACK_2)) {
             if(executePlayerItemAttack(item,lastPlayerItem2Time)) {
                 System.out.println(new Timestamp(System.currentTimeMillis()) + " -> executed item 2");
+                System.out.println(action);
                 lastPlayerItem2Time = System.currentTimeMillis();
             }
         }
@@ -132,13 +141,13 @@ public class Combat {
     private static boolean executePlayerItemAttack(Item item, Long lastTime) {
         if(item.getItemType().equals(ItemType.SWORDBREAK) && checkCooldown(lastTime, ItemsConstants.SWORDBREAK_COOLDOWN)) {
             enemy.setHp(enemy.getHp() - ItemsConstants.SWORDBREAK_DAMAGE);
+            if(enemy.getHp() <= 0) enemyDeath(enemy);
             return true;
         } else if(item.getItemType().equals(ItemType.EYEWHIP) && checkCooldown(lastTime, ItemsConstants.EYEWHIP_COOLDOWN)) {
             enemy.setHp(enemy.getHp() - ItemsConstants.EYEWHIP_DAMAGE);
+            if(enemy.getHp() <= 0) enemyDeath(enemy);
             return true;
         }
-
-        if(enemy.getHp() <= 0) enemyDeath(enemy);
         return false;
     }
 }
