@@ -1,5 +1,5 @@
 {
-  "hp": 150,
-  "attack_damage": 4,
-  "attack_cooldown": 350
+  "hp": 200,
+  "attack_damage": 10,
+  "attack_cooldown": 750
 }

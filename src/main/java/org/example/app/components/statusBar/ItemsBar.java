@@ -26,7 +26,7 @@ public class ItemsBar extends JPanel {
         timers = new ArrayList<>();
         timers.add(0, Combat.getLastPlayerItem1Time());
         timers.add(1, Combat.getLastPlayerItem2Time());
-        label = "Collected items:";
+        label = "Active items:";
     }
 
     @Override
