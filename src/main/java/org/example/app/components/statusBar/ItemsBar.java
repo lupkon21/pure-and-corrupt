@@ -63,7 +63,7 @@ public class ItemsBar extends JPanel {
         if(item.getItemType().equals(ItemType.SWORDBREAK)) cooldown = ItemsConstants.SWORDBREAK_COOLDOWN;
         else if (item.getItemType().equals(ItemType.EYEWHIP)) cooldown = ItemsConstants.EYEWHIP_COOLDOWN;
 
-        int time = (int) ((cooldown - (System.currentTimeMillis() - timers.get(index))) / 1000) + 1;
+        int time = (int) ((cooldown - (System.currentTimeMillis() - timers.get(index))) / 1000);
         return Math.max(time, 0);
     }
 }
