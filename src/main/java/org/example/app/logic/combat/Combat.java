@@ -13,7 +13,6 @@ import org.example.app.logic.items.ItemsExecutor;
 import org.example.app.logic.movement.CollisionDetection;
 
 import javax.swing.*;
-import java.sql.Timestamp;
 
 @Setter
 @Getter
@@ -64,12 +63,10 @@ public class Combat {
 
     public static void playerDefend(){
         if(enemy != null && checkCooldown(lastPlayerDefendTime, player.getDefendCooldown())) {
-            System.out.println(player.getDefendTime());
             player.setDefendActive(true);
             lastPlayerDefendTime = System.currentTimeMillis();
             Timer timer = new Timer(player.getDefendTime(), argument -> {
                 player.setDefendActive(false);
-                System.out.println(player.isDefendActive());
             });
             timer.setRepeats(false);
             timer.start();
@@ -83,14 +80,10 @@ public class Combat {
 
         if(action.equals(CombatAction.ITEM_ATTACK_1)) {
             if(executePlayerItemAttack(item,lastPlayerItem1Time)) {
-                System.out.println(new Timestamp(System.currentTimeMillis()) + " -> executed item 1");
-                System.out.println(action);
                 lastPlayerItem1Time = System.currentTimeMillis();
             }
         } else if(action.equals(CombatAction.ITEM_ATTACK_2)) {
             if(executePlayerItemAttack(item,lastPlayerItem2Time)) {
-                System.out.println(new Timestamp(System.currentTimeMillis()) + " -> executed item 2");
-                System.out.println(action);
                 lastPlayerItem2Time = System.currentTimeMillis();
             }
         }
