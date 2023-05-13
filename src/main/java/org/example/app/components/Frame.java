@@ -175,11 +175,13 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if(isGamePaused()) {
-            stopTimers();
+            pauseGame();
             statusBarPanel.getHealthBar().repaint();
             statusBarPanel.getItemsBar().repaint();
         } else if(isGameOver()){
             endGame();
+        } else if(mapPanel.getMap().isGameFinished()) {
+            finishGame();
         }
         else if(actionEvent.getSource().equals(enemyMovementTimer)) {
             mapPanel.getMap().getComponents().getDynamic().moveEnemies();

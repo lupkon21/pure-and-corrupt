@@ -20,6 +20,7 @@ public class Map implements Paintable {
     private Components components;
     private boolean isGameOver = false;
     private boolean isGamePaused = false;
+    private boolean isGameFinished = false;
 
     @Override
     public void paint(Graphics2D g2) {

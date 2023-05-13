@@ -2,7 +2,6 @@ package org.example.app.logic.movement;
 
 import lombok.AllArgsConstructor;
 import lombok.ToString;
-import org.example.app.components.Frame;
 import org.example.app.components.map.Map;
 import org.example.app.components.map.components.dynamic.Enemy;
 import org.example.app.components.map.components.dynamic.Item;
@@ -58,7 +57,11 @@ public class CollisionDetection {
         for(PaintableComponent i : items) {
             if(player.getX().equals(i.getX()) && player.getY().equals(i.getY())) {
                 if(i instanceof Objective && map.getComponents().getDynamic().getEnemies().size() == 0) {
-                    Render.renderNextMap();
+                    if(map.getId() == 5) {
+                        map.setGameFinished(true);
+                    } else {
+                        Render.renderNextMap();
+                    }
                 } else if(i instanceof Item) {
                     map.getComponents().getDynamic().getItems().remove(i);
                     items.remove(i);

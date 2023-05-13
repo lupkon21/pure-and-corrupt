@@ -8,7 +8,6 @@ import org.example.app.constants.PauseMenuConstants;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 @Getter
 @Setter
@@ -33,8 +32,8 @@ public class DeathScreenPanel extends JPanel {
         g2.setFont(new Font("Impact", Font.PLAIN, 32));
         g2.drawString("Programming - Lukáš Protiva, Martin Šoupa", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 11));
         g2.drawString("Design - Martin Šoupa, Lukáš Protiva", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 12));
-        g2.drawString("Příběh - Martin Šoupa", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 13));
-        g2.drawString("Grafika - František Břenek", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 14));
+        g2.drawString("Story - Martin Šoupa", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 13));
+        g2.drawString("Graphics - František Břenek", (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 14));
 
         g2.setColor(Color.RED);
         g2.drawRect((MapConstants.GRID_CELL_SIZE * 30), (MapConstants.GRID_CELL_SIZE),(MapConstants.GRID_CELL_SIZE * 9),(MapConstants.GRID_CELL_SIZE * 2));
