@@ -71,7 +71,7 @@ public class Player extends PaintableComponent {
         if(isCombatActive) Combat.playerDefaultAttack();
     }
     public void defend() {
-        if(isCombatActive) Combat.playerDefend();
+        Combat.playerDefend();
     }
 
 
