@@ -103,7 +103,7 @@ public class Combat {
         if(hasPlayerItem(ItemType.LIFECRYSTAL)) {
             player.setHp(player.getHp() + ItemsConstants.LIFECRYSTAL_EFFECTIVNESS);
         }
-        if(map.getComponents().getDynamic().getEnemies().size() == 0) {
+        if(map.getId().equals(5) || map.getComponents().getDynamic().getEnemies().size() == 0) {
             Objective objective = map.getComponents().getDynamic().getObjective();
             objective.setVisible(true);
         }

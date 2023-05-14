@@ -48,6 +48,7 @@ public class MapPanel extends JPanel {
         this.id = id;
         map = Loader.loadMap(id);
         if(map.getId() == null) System.exit(1);
+        if(map.getId() == 5) map.getComponents().getDynamic().getObjective().setVisible(true);
         initializeLogic(map);
     }
 }
