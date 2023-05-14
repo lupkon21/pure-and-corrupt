@@ -2,6 +2,6 @@
   "hp": 100,
   "attack_damage": 50,
   "attack_cooldown": 500,
-  "defend_cooldown": 4000,
+  "defend_cooldown": 3000,
   "defend_time": 1000
 }

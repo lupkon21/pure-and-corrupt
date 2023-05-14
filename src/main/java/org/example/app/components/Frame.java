@@ -197,6 +197,10 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         return isGameOver() || isGamePaused();
     }
 
+    private boolean isGameFinished() {
+        return mapPanel.getMap().isGameFinished();
+    }
+
     private boolean isGamePaused() {
         return mapPanel.getMap().isGamePaused();
     }
@@ -240,6 +244,11 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
             }
             if(isGamePaused() && x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
                 resumeGame();
+            }
+        }
+        if(isGameFinished()){
+            if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE*2)&&y<(MapConstants.GRID_CELL_SIZE*4)){
+                System.exit(0);
             }
         }
     }
