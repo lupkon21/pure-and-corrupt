@@ -18,11 +18,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Frame extends JFrame implements KeyListener, ActionListener, MouseListener {
-    private final MapPanel mapPanel;
-    private final StatusBarPanel statusBarPanel;
-    private final DeathScreenPanel deathScreenPanel;
-    private final EndingScreenPanel endingScreenPanel;
-    private final PauseMenuPanel pauseMenuPanel;
+    private MapPanel mapPanel;
+    private StatusBarPanel statusBarPanel;
+    private DeathScreenPanel deathScreenPanel;
+    private EndingScreenPanel endingScreenPanel;
+    private PauseMenuPanel pauseMenuPanel;
     private Timer enemyMovementTimer;
     private Timer statusRefreshTimer;
     private long playerLastMovementTime;
@@ -30,8 +30,12 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
     public Frame() {
         super("Pure and Corrupt");
         super.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         this.setLayout(new BorderLayout());
+        initialize();
+        super.setVisible(true);
+    }
+
+    public void initialize() {
         mapPanel = new MapPanel();
         statusBarPanel = new StatusBarPanel(mapPanel.getMap().getComponents().getDynamic().getPlayer().getHp());
         deathScreenPanel = new DeathScreenPanel();
@@ -49,7 +53,6 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
 
         initializeTimers();
         Render.setFrame(this);
-        super.setVisible(true);
     }
 
     @Override
@@ -172,6 +175,14 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         this.repaint();
     }
 
+    private void restartGame() {
+        stopTimers();
+        this.remove(endingScreenPanel);
+        this.remove(deathScreenPanel);
+        initialize();
+        this.repaint();
+    }
+
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if(isGamePaused()) {
@@ -242,6 +253,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
             if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE*2)&&y<(MapConstants.GRID_CELL_SIZE*4)){
                 System.exit(0);
             }
+            if(isGameOver() && x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
+                restartGame();
+            }
             if(isGamePaused() && x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
                 resumeGame();
             }
@@ -249,6 +263,9 @@ public class Frame extends JFrame implements KeyListener, ActionListener, MouseL
         if(isGameFinished()){
             if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE*2)&&y<(MapConstants.GRID_CELL_SIZE*4)){
                 System.exit(0);
+            }
+            if(x>(MapConstants.GRID_CELL_SIZE * 30)&&x<(MapConstants.GRID_CELL_SIZE * 39)&&y>(MapConstants.GRID_CELL_SIZE * 5)&&y<(MapConstants.GRID_CELL_SIZE*7)){
+                restartGame();
             }
         }
     }
