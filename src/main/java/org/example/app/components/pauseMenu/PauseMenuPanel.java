@@ -75,14 +75,14 @@ public class PauseMenuPanel extends JPanel {
         g2.setFont(new Font("Arial", Font.BOLD, 15));
         g2.drawString("The moment it touches you, it becomes a part of your armor, of your weapon and of you, thus making you more dangerous and more lethal.", (MapConstants.GRID_CELL_SIZE * 12), (MapConstants.GRID_CELL_SIZE * 22) + 6);
 
-        BufferedImage thornParry = Loader.loadAsset(MapConstants.ASSET_PATH  + "3/5.png");
+        BufferedImage thornParry = Loader.loadAsset(MapConstants.ASSET_PATH  + "3/4.png");
         g2.drawImage(thornParry, (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 22) + 20, null);
         g2.setFont(new Font("Impact", Font.PLAIN, 32));
         g2.drawString("Thorn parry:", (MapConstants.GRID_CELL_SIZE * 5), (MapConstants.GRID_CELL_SIZE * 23) + 18);
         g2.setFont(new Font("Arial", Font.BOLD, 15));
         g2.drawString("Your shield is grown through with thorny vines. You feel the shield strengthen and new blood coarsing through your veins.", (MapConstants.GRID_CELL_SIZE * 12), (MapConstants.GRID_CELL_SIZE * 23) + 12);
 
-        BufferedImage corruptedBoots = Loader.loadAsset(MapConstants.ASSET_PATH  + "3/4.png");
+        BufferedImage corruptedBoots = Loader.loadAsset(MapConstants.ASSET_PATH  + "3/5.png");
         g2.drawImage(corruptedBoots, (MapConstants.GRID_CELL_SIZE * 3), (MapConstants.GRID_CELL_SIZE * 23) + 25, null);
         g2.setFont(new Font("Impact", Font.PLAIN, 32));
         g2.drawString("Corrupted boots:", (MapConstants.GRID_CELL_SIZE * 5), (MapConstants.GRID_CELL_SIZE * 24) + 24);

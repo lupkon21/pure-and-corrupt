@@ -23,6 +23,7 @@ public class ItemsExecutor {
 
     public static void execute(Item item) {
         ItemType itemType = item.getItemType();
+        System.out.println(itemType);
 
         if(itemType.equals(ItemType.LIFECRYSTAL)) {
             if(player.hasItem(ItemType.LIFECRYSTAL)) {
